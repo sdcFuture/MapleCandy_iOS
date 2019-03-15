@@ -1,2 +1,2 @@
-# MapleCandy_iOS
-Repository for the Maple Candy iOS app
+# FutureSTidgetiOS
+STidget iOS Application
