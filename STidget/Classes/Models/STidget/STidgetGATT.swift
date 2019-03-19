@@ -10,9 +10,16 @@ import Foundation
 import CoreBluetooth
 
 //DEFINE STIDGET SERVICE AND CHARACTERISTIC UUIDS
-let STIDGET_PRIMARY_SERVICE_UUID = CBUUID(string: "f79b4eb3-1b6e-41f2-8d65-d346b4ef5685")
-let STIDGET_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb4-1b6e-41f2-8d65-d346b4ef5685")
-let STIDGET_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb5-1b6e-41f2-8d65-d346b4ef5685")
+
+//let STIDGET_PRIMARY_SERVICE_UUID = CBUUID(string: "f79b4eb3-1b6e-41f2-8d65-d346b4ef5685")
+let STIDGET_PRIMARY_SERVICE_UUID = CBUUID(string: "D68C0001-A21B-11E5-8CB8-0002A5D5C51B")
+
+//let STIDGET_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb4-1b6e-41f2-8d65-d346b4ef5685")
+let STIDGET_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "D68C0003-A21B-11E5-8CB8-0002A5D5C51B")
+
+//let STIDGET_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb5-1b6e-41f2-8d65-d346b4ef5685")
+let STIDGET_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "D68C0002-A21B-11E5-8CB8-0002A5D5C51B")
+
 let STIDGET_TEMP_CHARACTERISTIC_UUID = CBUUID(string: "2A6E")
 let STIDGET_AMB_LIGHT_PROX_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb6-1b6e-41f2-8d65-d346b4ef5685")
 let STIDGET_TEST_UUID = CBUUID(string: "EF680100-9B35-4933-9B10-52FFA9740042")
@@ -78,7 +85,7 @@ class STidgetGATT: NSObject{
             switch Service.uuid{
             case StidgetPrimaryService!.uuid:
                 
-                print("STidgetGATT: FOUND STIDGET PRIMARY SERVICE")
+                print("STidgetGATT: FOUND MAPLE CANDY VUART_HDL_SVC PRIMARY SERVICE")
                 StidgetPrimaryService?.service = Service
                 stidget.discoverCharacteristics(forService: stidgetPrimaryService!, withUUIDS: nil)
                 
@@ -96,13 +103,13 @@ class STidgetGATT: NSObject{
             switch Characteristic.uuid{
             case StidgetRgbLedCharacteristic!.uuid:
                 
-                print("STidgetGATT: FOUND RGB LED CHARACTERISTIC")
+                print("STidgetGATT: FOUND MAPLE CANDY UART_HDL_WRITE_CHAR CHARACTERISTIC")
                 StidgetRgbLedCharacteristic?.characteristic = Characteristic
                 //stidget.enableNotifications(forCharacteristic: stidgetRgbLedCharacteristic!)
                 
             case StidgetAccelRpmGyroCharacteristic!.uuid:
                 
-                print("STidgetGATT: FOUND ACCEL RPM GYRO CHARACTERISTIC")
+                print("STidgetGATT: FOUND MAPLE CANDY VUART_HDL_INDICATION_CHAR CHARACTERISTIC")
                 StidgetAccelRpmGyroCharacteristic?.characteristic = Characteristic
                 stidget.enableNotifications(forCharacteristic: stidgetAccelRpmGyroCharacteristic!)
                 
@@ -181,32 +188,32 @@ extension STidgetGATT{
         }
         
         let accelX: Int16 = (Int16(dataBytes[1]) << 8) | Int16(dataBytes[0])
-        //print("X acceleration = \(accelX)")
+        print("X acceleration = \(accelX)")
         accelRpmGyroData.accelData.x = accelX
         
         let accelY: Int16 = (Int16(dataBytes[3]) << 8) | Int16(dataBytes[2])
-        //print("Y acceleration = \(accelY)")
+        print("Y acceleration = \(accelY)")
         accelRpmGyroData.accelData.y = accelY
         
         let accelZ: Int16 = (Int16(dataBytes[5]) << 8) | Int16(dataBytes[4])
-        //print("Z acceleration = \(accelZ)")
+        print("Z acceleration = \(accelZ)")
         accelRpmGyroData.accelData.z = accelZ
         
-        let RPM: UInt16 = (UInt16(dataBytes[7]) << 8) | UInt16(dataBytes[6])
+        //let RPM: UInt16 = (UInt16(dataBytes[7]) << 8) | UInt16(dataBytes[6])
         //print("RPM = \(RPM)")
-        accelRpmGyroData.rpmData = RPM
+        //accelRpmGyroData.rpmData = RPM
         
-        let gyroX: Int16 = (Int16(dataBytes[9]) << 8) | Int16(dataBytes[8])
+        //let gyroX: Int16 = (Int16(dataBytes[9]) << 8) | Int16(dataBytes[8])
         //print("X gyro = \(gyroX)")
-        accelRpmGyroData.gyroData.x = gyroX
+        //accelRpmGyroData.gyroData.x = gyroX
         
-        let gyroY: Int16 = (Int16(dataBytes[11]) << 8) | Int16(dataBytes[10])
+        //let gyroY: Int16 = (Int16(dataBytes[11]) << 8) | Int16(dataBytes[10])
         //print("Y gyro = \(gyroY)")
-        accelRpmGyroData.gyroData.y = gyroY
+        //accelRpmGyroData.gyroData.y = gyroY
         
-        let gyroZ: Int16 = (Int16(dataBytes[13]) << 8) | Int16(dataBytes[12])
+        //let gyroZ: Int16 = (Int16(dataBytes[13]) << 8) | Int16(dataBytes[12])
         //print("Z gyro = \(gyroZ)")
-        accelRpmGyroData.gyroData.z = gyroZ
+        //accelRpmGyroData.gyroData.z = gyroZ
         
         //Accel + Gyro: [Accel X sint16 in mg] [Accel Y sint16 in mg] [Accel Z sint16 in mg] [RPM uint16] [Gyro X sint16 in 0.1dps] [Gyro Y sint16 in 0.1dps] [Gyro Z sint16 in 0.1dps]
         return accelRpmGyroData

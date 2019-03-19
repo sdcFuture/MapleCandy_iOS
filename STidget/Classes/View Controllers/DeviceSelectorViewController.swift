@@ -120,7 +120,7 @@ extension DeviceSelectorViewController: STidgetDeviceManager{
             self.connectButton.layer.opacity = 1
         })
         connectButton.isEnabled = true
-        stidgetStatusText.text = "Found STidget!"
+        stidgetStatusText.text = "Found MapleCandy"
     }
     
     func connected() {

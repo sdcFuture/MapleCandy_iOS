@@ -149,12 +149,14 @@ extension BLETopLevelController: GAPEventDelegate
             let localName             = advertisementData["kCBAdvDataLocalName"] as? String
          //   print("LOCAL NAME = \(String(describing: localName))")
             
-        if (localName == "STidget"){
-            print("Found STidget, Call delegate")
-            stidget.foundSTidgetPeripheral(StidgetPeripheral: peripheral)
+        //if (localName == "MapleCandy00"){
+        
+        if let DeviceString = localName {
+            if (DeviceString.hasPrefix("MapleCandy")) {
+                print("Found MapleCandy, Call delegate")
+                stidget.foundSTidgetPeripheral(StidgetPeripheral: peripheral)
+            }
         }
-        
-        
     }
     
     func centralController(connectedTo peripheral: CBPeripheral)

@@ -217,7 +217,7 @@ extension STidget: STidgetAPI{
     func discover() {
         
         if bleReady{
-            print("Start Scanning for STidgets")
+            print("Start Scanning for MapleCandy")
             super.startScanningForPeripherals(withServices: nil)
             //super.startScanningForPeripherals(withServices: [STIDGET_TEST_UUID])//[STIDGET_PRIMARY_SERVICE_UUID])
             stidgetStatus = .searching
@@ -454,7 +454,7 @@ extension STidget: BLERadioStatusDelegate{
     func bluetoothReady() {
         bleReady = true
         if startScanningFlag && stidgetStatus == .idle{
-            print("Start Scanning for STidgets")
+            print("Start Scanning for MapleCandy")
             stidgetStatus = .searching
             super.startScanningForPeripherals(withServices: nil)
         }
@@ -493,7 +493,7 @@ extension STidget: STidgetAPIDelegate{
         stidgetDeviceManager?.foundStidget()
         super.stopScanning()
         stidgetStatus = .connecting
-        print("ATTEMPTING TO CONNECT TO STIDGET")
+        print("ATTEMPTING TO CONNECT TO MAPLE CANDY")
     }
     
     func updatedParameter(for parameter: STidgetParameters, newValue: Any) {
