@@ -34,10 +34,27 @@ class MotionViewController: UIViewController {
         let accelerationUpdateHandler = MotionDataModel.AccelerationUIDelegate(updateHandler: {
             (x: Int16, y: Int16, z: Int16) in
             print("ACC x: \(x), y: \(y), z: \(z)")
-            self.accelXLabel.text = "0:\(x)"
-            self.accelYLabel.text = "1:\(y)"
-            self.accelZLabel.text = "2:\(z)"
+            //self.accelXLabel.text = "0:\(x)"
+            //Measurement * 3.3/4095
+            let xStringFloat = String(format: "%.2f",Float(x) * 8.058608e-4);
+            self.accelXLabel.text = "0: \(xStringFloat)"
+            
+            //Measurement * 10.0/4095
+            //self.accelYLabel.text = "1: \(y)"
+            let yStringFloat = String(format: "%.2f",Float(y) * 2.442002e-3)
+            self.accelYLabel.text = "1: \(yStringFloat)"
+            
+            //Measurement * 20.0/4095
+            //self.accelZLabel.text = "2: \(z)"
+            let zStringFloat = String(format: "%.2f",Float(z) * 4.884004e-3)
+            self.accelZLabel.text = "2: \(zStringFloat)"
+
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
+   
+            //Needle Position = Measurement * 380/4095
+            let gaugeNeedlePos = Int (Float(x) * 0.0927961)
+            print("Needle Position = \(gaugeNeedlePos)")
+            self.gaugeView.setRPM(rpm: gaugeNeedlePos)
         })
         
         //DEFINE CLOSURE TO HANDLE GYROSCOPE UPDATES
@@ -55,7 +72,7 @@ class MotionViewController: UIViewController {
             (rpm: UInt16) in
             print("New rpm: \(rpm)")
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
-            self.gaugeView.setRPM(rpm: Int(rpm))
+            //self.gaugeView.setRPM(rpm: Int(rpm))
         })
         
         //INITIALIZE MOTION DATA MODEL
@@ -71,7 +88,7 @@ class MotionViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         motionDataModel.disableUpdates()
     }
-    
+
     override func viewDidLayoutSubviews() {
 
     }
