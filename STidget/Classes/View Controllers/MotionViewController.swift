@@ -34,21 +34,21 @@ class MotionViewController: UIViewController {
         let accelerationUpdateHandler = MotionDataModel.AccelerationUIDelegate(updateHandler: {
             (x: Int16, y: Int16, z: Int16) in
             print("ACC x: \(x), y: \(y), z: \(z)")
-            self.accelXLabel.text = "X: \(x)"
-            self.accelYLabel.text = "Y: \(y)"
-            self.accelZLabel.text = "Z: \(z)"
+            self.accelXLabel.text = "0:\(x)"
+            self.accelYLabel.text = "1:\(y)"
+            self.accelZLabel.text = "2:\(z)"
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
         })
         
         //DEFINE CLOSURE TO HANDLE GYROSCOPE UPDATES
-        let gyroscopeUpdateHandler = MotionDataModel.GyroscopeUIDelegate(updateHandler: {
-            (x: Int16, y: Int16, z: Int16) in
-            print("GYRO x: \(x), y: \(y), z: \(z)")
-            self.gyroXLabel.text = "X: \(x)"
-            self.gyroYLabel.text = "Y: \(y)"
-            self.gyroZLabel.text = "Z: \(z)"
+//        let gyroscopeUpdateHandler = MotionDataModel.GyroscopeUIDelegate(updateHandler: {
+//            (x: Int16, y: Int16, z: Int16) in
+//            print("GYRO x: \(x), y: \(y), z: \(z)")
+//            self.gyroXLabel.text = "X: \(x)"
+//            self.gyroYLabel.text = "Y: \(y)"
+//            self.gyroZLabel.text = "Z: \(z)"
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
-        })
+//        })
         
         //DEFINE CLOSURE TO HANDLE RPM UPDATES
         let rpmUpdateHandler = MotionDataModel.RpmUIDelegate(updateHandler: {
@@ -59,7 +59,8 @@ class MotionViewController: UIViewController {
         })
         
         //INITIALIZE MOTION DATA MODEL
-        motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: gyroscopeUpdateHandler, rpmDelegate: rpmUpdateHandler)
+        //motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: gyroscopeUpdateHandler, rpmDelegate: rpmUpdateHandler)
+        motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: nil, rpmDelegate: rpmUpdateHandler)
     }
 
     override func viewDidAppear(_ animated: Bool) {
