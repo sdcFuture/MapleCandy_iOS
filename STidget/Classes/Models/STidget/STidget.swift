@@ -447,6 +447,54 @@ extension STidget: STidgetAPI{
            super.write(value: data, toCharacteristic: characteristic)
         }
     }
+    
+    /**
+     Set DAC Value
+     
+     - Author:
+     
+     - returns:
+     True if command successful, false otherwise
+     
+     - throws:
+     nothing
+     
+     - parameters:
+     DAC0, DAC1 in float
+     
+     */
+    func setDAC(DAC0: Float, DAC1: Float){
+        //RGB LED: [Red uint8] [Green uint8] [Blue uint8]
+        //print("DAC0: \(DAC0) DAC1: \(DAC1)")
+        
+        //Convert float to string
+        let DAC0String = String(format: "%.2f", DAC0)
+        let DAC1String = String(format: "%.2f", DAC1)
+        let DACStringToSend = DAC0String + "," + DAC1String
+        print("DAC: " + DACStringToSend)
+        
+        //Pad string at the end to 20 bytes
+        //let DACStringToSendPad = DACStringToSend.padding(toLength: 20, withPad: ",", startingAt: 0)
+        //print("DACPad: " + DACStringToSendPad)
+        
+        //For debug
+        let DAC0IntString = String(format: "%d", UInt(DAC0 * 1240.909))
+        let DAC1IntString = String(format: "%d", UInt(DAC1 * 4095.0))
+        print("DAC(Int): " + DAC0IntString + "," + DAC1IntString)
+        
+        //Convert string to byes
+        var byteArray = [UInt8]()
+        for char in DACStringToSend.utf8 {
+            byteArray += [char]
+        }
+        
+        let data = Data(buffer: UnsafeBufferPointer(start: byteArray, count: byteArray.count))
+        
+        if let characteristic = stidgetGATT.stidgetRgbLedCharacteristic{
+            super.write(value: data, toCharacteristic: characteristic)
+        }
+        
+    }
 }
 
 // MARK:

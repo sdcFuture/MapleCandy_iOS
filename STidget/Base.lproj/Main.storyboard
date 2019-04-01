@@ -433,6 +433,34 @@
             </objects>
             <point key="canvasLocation" x="548" y="894.0886699507389"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="xXR-hD-bEb">
+            <objects>
+                <viewController id="sXp-7T-SOP" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xys-K5-ZoX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2K9-Cz-88O">
+                                <rect key="frame" x="0.0" y="650" width="375" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="rfj-J7-wuz">
+                                        <rect key="frame" x="128" y="49" width="118" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="vHx-cc-cW4"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VtN-9q-8HU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1908" y="548.27586206896558"/>
+        </scene>
         <!--ADC Measurement & DAC Control Demo-->
         <scene sceneID="0tT-qr-ulE">
             <objects>
@@ -442,36 +470,36 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="umM-pM-ox0">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="641"/>
+                                <rect key="frame" x="0.0" y="0.0" width="325.66666666666669" height="641"/>
                                 <color key="backgroundColor" red="0.0" green="0.57321649789999995" blue="0.29539692400000001" alpha="0.13359899329322147" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMp-lq-cMT">
-                                <rect key="frame" x="0.0" y="509.33333333333343" width="375" height="131.66666666666669"/>
+                                <rect key="frame" x="0.0" y="545.33333333333337" width="325.66666666666669" height="95.666666666666629"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKX-3E-cDa">
-                                        <rect key="frame" x="8" y="8.0000000000000071" width="176.66666666666666" height="116.66666666666669"/>
+                                        <rect key="frame" x="8" y="8" width="152" height="80.666666666666671"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Measure (ADC)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="AAb-Ga-68a">
-                                                <rect key="frame" x="0.0" y="0.0" width="176.66666666666666" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Measure (ADC)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" translatesAutoresizingMaskIntoConstraints="NO" id="AAb-Ga-68a">
+                                                <rect key="frame" x="0.0" y="0.0" width="152" height="20.333333333333332"/>
                                                 <color key="backgroundColor" red="0.027450980392156862" green="0.67450980392156867" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="0:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ON9-Gf-H7s">
-                                                <rect key="frame" x="0.0" y="29" width="176.66666666666666" height="29"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ON9-Gf-H7s">
+                                                <rect key="frame" x="0.0" y="20.333333333333258" width="152" height="20.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sSK-Ho-pxj">
-                                                <rect key="frame" x="0.0" y="58" width="176.66666666666666" height="29"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sSK-Ho-pxj">
+                                                <rect key="frame" x="0.0" y="40.666666666666629" width="152" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJ2-aj-Bzc">
-                                                <rect key="frame" x="0.0" y="87" width="176.66666666666666" height="29"/>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJ2-aj-Bzc">
+                                                <rect key="frame" x="0.0" y="60.666666666666629" width="152" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -501,8 +529,42 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SD8-1c-TXt">
-                                        <rect key="frame" x="191.66666666666663" y="8.0000000000000071" width="176.33333333333337" height="116.66666666666669"/>
+                                        <rect key="frame" x="167" y="8" width="151.66666666666663" height="80.666666666666671"/>
+                                        <subviews>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="3.2999999999999998" continuous="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVu-KP-GK5">
+                                                <rect key="frame" x="3" y="34" width="170" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="A1a-CF-xxw"/>
+                                                    <constraint firstAttribute="width" constant="166.33000000000001" id="kuG-yt-uVY"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="slider:" destination="ddS-Eo-ton" eventType="valueChanged" id="cO8-gR-qb1"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0 Volts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VM2-ty-gmy">
+                                                <rect key="frame" x="20" y="5" width="50" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="24" id="7Z3-5S-chl"/>
+                                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="135" id="9nV-Vg-zTM"/>
+                                                    <constraint firstAttribute="height" constant="24" id="Lm8-3c-nSC"/>
+                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="PiK-Wn-ICu"/>
+                                                    <constraint firstAttribute="width" constant="50" id="hnV-gV-tB8"/>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="24" id="n9P-1Q-rDd"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="VM2-ty-gmy" firstAttribute="top" secondItem="SD8-1c-TXt" secondAttribute="top" constant="5" id="1nZ-Nr-GGk"/>
+                                            <constraint firstItem="lVu-KP-GK5" firstAttribute="leading" secondItem="SD8-1c-TXt" secondAttribute="leading" constant="5" id="Dnc-yC-rlk"/>
+                                            <constraint firstAttribute="trailing" secondItem="VM2-ty-gmy" secondAttribute="trailing" constant="21.329999999999998" id="XDn-02-igk"/>
+                                            <constraint firstAttribute="trailing" secondItem="lVu-KP-GK5" secondAttribute="trailing" constant="5" id="Yzb-ye-wlN"/>
+                                            <constraint firstItem="VM2-ty-gmy" firstAttribute="leading" secondItem="SD8-1c-TXt" secondAttribute="leading" constant="20" id="bha-iy-CuV"/>
+                                            <constraint firstItem="lVu-KP-GK5" firstAttribute="top" secondItem="VM2-ty-gmy" secondAttribute="bottom" constant="5" id="h7I-ah-jQZ"/>
+                                        </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                 <integer key="value" value="5"/>
@@ -523,7 +585,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGN-7R-P4x" customClass="GaugeView" customModule="STidget" customModuleProvider="target">
-                                <rect key="frame" x="8" y="7.9999999999999716" width="359" height="501.33333333333326"/>
+                                <rect key="frame" x="8" y="8" width="309.66666666666669" height="537.33333333333337"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -550,6 +612,7 @@
                     <navigationItem key="navigationItem" id="Dlp-hc-xLm"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="DACLabel" destination="VM2-ty-gmy" id="ihl-rc-9KC"/>
                         <outlet property="accelXLabel" destination="ON9-Gf-H7s" id="Zb5-pz-9KH"/>
                         <outlet property="accelYLabel" destination="sSK-Ho-pxj" id="6qy-VT-tO8"/>
                         <outlet property="accelZLabel" destination="RJ2-aj-Bzc" id="Gva-93-W8T"/>

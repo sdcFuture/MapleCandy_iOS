@@ -83,6 +83,7 @@ protocol STidgetAPI {
     func proximity() -> (Int16)
     func ambientLightLevel() -> (UInt16)
     func setLedColor(red: UInt8, green: UInt8, blue: UInt8)
+    func setDAC(DAC0: Float, DAC1: Float)
 }
 
 //CONNECTION TO LOWER LEVEL BLE

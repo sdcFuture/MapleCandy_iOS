@@ -188,15 +188,15 @@ extension STidgetGATT{
         }
         
         let accelX: Int16 = (Int16(dataBytes[1]) << 8) | Int16(dataBytes[0])
-        print("X acceleration = \(accelX)")
+        //print("X acceleration = \(accelX)")
         accelRpmGyroData.accelData.x = accelX
         
         let accelY: Int16 = (Int16(dataBytes[3]) << 8) | Int16(dataBytes[2])
-        print("Y acceleration = \(accelY)")
+        //print("Y acceleration = \(accelY)")
         accelRpmGyroData.accelData.y = accelY
         
         let accelZ: Int16 = (Int16(dataBytes[5]) << 8) | Int16(dataBytes[4])
-        print("Z acceleration = \(accelZ)")
+        //print("Z acceleration = \(accelZ)")
         accelRpmGyroData.accelData.z = accelZ
         
         //let RPM: UInt16 = (UInt16(dataBytes[7]) << 8) | UInt16(dataBytes[6])

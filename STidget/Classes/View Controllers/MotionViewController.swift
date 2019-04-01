@@ -25,6 +25,21 @@ class MotionViewController: UIViewController {
     
     @IBOutlet weak var gaugeView: GaugeView!
     
+    @IBOutlet weak var DACLabel: UILabel!
+    
+    @IBAction func slider(_ sender: UISlider) {
+        DACLabel.text = String(format: "%.1f", sender.value) + " Volts"
+        stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
+        
+        //Send data multiple times for debug
+        
+        //let ms = 1000
+        //usleep(useconds_t(100 * ms)) //sleep 100 msec
+        //stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
+
+        //usleep(useconds_t(100 * ms)) //sleep 100 msec
+        //stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
@@ -70,7 +85,7 @@ class MotionViewController: UIViewController {
         //DEFINE CLOSURE TO HANDLE RPM UPDATES
         let rpmUpdateHandler = MotionDataModel.RpmUIDelegate(updateHandler: {
             (rpm: UInt16) in
-            print("New rpm: \(rpm)")
+            //print("New rpm: \(rpm)")
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
             //self.gaugeView.setRPM(rpm: Int(rpm))
         })
