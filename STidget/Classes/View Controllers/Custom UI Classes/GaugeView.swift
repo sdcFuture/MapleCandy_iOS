@@ -76,7 +76,7 @@ class GaugeView: UIView
 
         //ADD LABEL VIEW TO IMAGE VIEW
         newImageView.addSubview(valueLabel)
-        valueLabel.isHidden = true
+        valueLabel.isHidden = false
         
         //SETUP AND ADD INDICATOR IMAGE VIEW
         let indicatorXCoordinate             = superViewWidth/2 - (imageViewWidth/3.25)/2
@@ -106,11 +106,11 @@ class GaugeView: UIView
         lastRpm = newRandomRpm
     }
     
-    func setRPM(rpm: Int){
+    func setRPM(rpm: Int, measureStr: String){
         //let newRandomRpm = Int(arc4random_uniform(1500))
         let rpmToAngleChange = ((Float(rpm)/382)*270)//*Float(Double.pi/180)
         updateRpmTest(angleChange: rpmToAngleChange)
-        valueLabel.text = "\(rpm)"
+        valueLabel.text = "\(measureStr)"
         lastRpm = rpm
     }
     

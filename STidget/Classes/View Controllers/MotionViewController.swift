@@ -27,6 +27,9 @@ class MotionViewController: UIViewController {
     
     @IBOutlet weak var DACLabel: UILabel!
     
+    @IBOutlet weak var DAC1Label: UILabel!
+    @IBAction func skider2(_ sender: Any) {
+    }
     @IBAction func slider(_ sender: UISlider) {
         DACLabel.text = String(format: "%.1f", sender.value) + " Volts"
         stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
@@ -69,7 +72,7 @@ class MotionViewController: UIViewController {
             //Needle Position = Measurement * 380/4095
             let gaugeNeedlePos = Int (Float(x) * 0.0927961)
             print("Needle Position = \(gaugeNeedlePos)")
-            self.gaugeView.setRPM(rpm: gaugeNeedlePos)
+            self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: xStringFloat)
         })
         
         //DEFINE CLOSURE TO HANDLE GYROSCOPE UPDATES
