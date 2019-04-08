@@ -13,6 +13,8 @@ class MotionViewController: UIViewController {
     //Motion data model
     var motionDataModel: MotionDataModel!
     
+    let ChannelNumber = 0
+    
     //Accelerometer view labels
     @IBOutlet weak var accelXLabel: UILabel!
     @IBOutlet weak var accelYLabel: UILabel!
@@ -28,22 +30,45 @@ class MotionViewController: UIViewController {
     @IBOutlet weak var DACLabel: UILabel!
     
     @IBOutlet weak var DAC1Label: UILabel!
-    @IBAction func skider2(_ sender: Any) {
+    
+    @IBOutlet weak var ChannelSelect: UISegmentedControl!
+    
+    struct GlobalVar {
+        static var ChannelNumber = UInt8 (0)
+        static var settingDAC0 = Float (0)
+        static var settingDAC1 = Float (0)
     }
-    @IBAction func slider(_ sender: UISlider) {
-        DACLabel.text = String(format: "%.1f", sender.value) + " Volts"
-        stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
+    
+    @IBAction func ChannelChanged(_ sender: UISegmentedControl) {
         
-        //Send data multiple times for debug
-        
-        //let ms = 1000
-        //usleep(useconds_t(100 * ms)) //sleep 100 msec
-        //stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
+        switch ChannelSelect.selectedSegmentIndex
+        {
+            case 0:
+                GlobalVar.ChannelNumber = 0;
+            case 1:
+                GlobalVar.ChannelNumber = 1;
+            case 2:
+                GlobalVar.ChannelNumber = 2;
+            default:
+                GlobalVar.ChannelNumber = 0;
+        }
+        stidget.setDAC(DAC0: GlobalVar.settingDAC0, DAC1: GlobalVar.settingDAC1)
+        viewDidLoad()
+    }
 
-        //usleep(useconds_t(100 * ms)) //sleep 100 msec
-        //stidget.setDAC(DAC0: Float(sender.value), DAC1: Float(0))
+    @IBAction func slider(_ sender: UISlider) {
+        DACLabel.text = "0: " + String(format: "%.2f", sender.value)
+        stidget.setDAC(DAC0: Float(sender.value), DAC1: GlobalVar.settingDAC1)
+        GlobalVar.settingDAC0 = sender.value
     }
-    override func viewDidLoad() {
+    
+    @IBAction func slider2(_ sender: UISlider) {
+        DAC1Label.text = "1: " + String(format: "%.2f", sender.value)
+        stidget.setDAC(DAC0: GlobalVar.settingDAC0, DAC1: Float(sender.value))
+        GlobalVar.settingDAC1 = sender.value
+    }
+    
+    override func   viewDidLoad() {
         super.viewDidLoad()
         //self.tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
         stidget.setDisconnectionDelegate(delegate: self)
@@ -68,12 +93,31 @@ class MotionViewController: UIViewController {
             self.accelZLabel.text = "2: \(zStringFloat)"
 
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
+            
+            //Needle Position = Measurement * (380/4095)
+            let needleConversionFactor = Float(0.0927961)
    
-            //Needle Position = Measurement * 380/4095
-            let gaugeNeedlePos = Int (Float(x) * 0.0927961)
-            print("Needle Position = \(gaugeNeedlePos)")
-            self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: xStringFloat)
-        })
+            switch GlobalVar.ChannelNumber
+            {
+            case 0:
+                let gaugeNeedlePos = Int (Float(x) * needleConversionFactor)
+                print("Needle Channel 0 = \(gaugeNeedlePos)")
+                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: xStringFloat)
+            case 1:
+                let gaugeNeedlePos = Int (Float(y) * needleConversionFactor)
+                print("Needle Channel 1 = \(gaugeNeedlePos)")
+                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: yStringFloat)
+            case 2:
+                let gaugeNeedlePos = Int (Float(z) * needleConversionFactor)
+                print("Needle Channel 2 = \(gaugeNeedlePos)")
+                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: zStringFloat)
+            default:
+                let gaugeNeedlePos = Int (Float(x) * needleConversionFactor)
+                print("Needle Channel 0 = \(gaugeNeedlePos)")
+                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: xStringFloat)
+            }
+            
+            })
         
         //DEFINE CLOSURE TO HANDLE GYROSCOPE UPDATES
 //        let gyroscopeUpdateHandler = MotionDataModel.GyroscopeUIDelegate(updateHandler: {
@@ -99,7 +143,7 @@ class MotionViewController: UIViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title = "STidget"
+        self.tabBarController?.title = "Maple Candy"
         motionDataModel.enableUpdates()
     }
     

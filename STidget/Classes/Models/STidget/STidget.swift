@@ -479,7 +479,7 @@ extension STidget: STidgetAPI{
         
         //For debug
         let DAC0IntString = String(format: "%d", UInt(DAC0 * 1240.909))
-        let DAC1IntString = String(format: "%d", UInt(DAC1 * 4095.0))
+        let DAC1IntString = String(format: "%d", UInt(DAC1 * 409.5))
         print("DAC(Int): " + DAC0IntString + "," + DAC1IntString)
         
         //Convert string to byes
