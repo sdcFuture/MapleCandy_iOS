@@ -1,19 +1,19 @@
 //
-//  STidget.swift
-//  STidget
+//  MapleCandy.swift
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/30/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import CoreBluetooth
 
-class STidget: BLETopLevelController{
+class MapleCandy: BLETopLevelController{
     
-    //STIDGET LOCAL PARAMETER STRUCT
-    private struct StidgetParameterValues{
+    //MAPLECANDY LOCAL PARAMETER STRUCT
+    private struct MaplecandyParameterValues{
         var acceleration                : (x: Int16, y: Int16, z: Int16) = (0,0,0)
         var gyroscope                   : (x: Int16, y: Int16, z: Int16) = (0,0,0)
         var prox                        : Int16                               = 0
@@ -23,18 +23,18 @@ class STidget: BLETopLevelController{
     }
     
     //PRIVATE VARIABLES 
-    private var stidgetParamtervalues   = StidgetParameterValues()
-    private var stidgetPeripheral       : CBPeripheral?
-    private var stidgetStatus           : STidgetStatus = .idle
+    private var maplecandyParamtervalues   = MaplecandyParameterValues()
+    private var maplecandyPeripheral       : CBPeripheral?
+    private var maplecandyStatus           : MapleCandyStatus = .idle
     private var bleReady                : Bool = false
     private var startScanningFlag       = false
     
-    //STIDGET SERVICES DELEGATES
+    //MAPLECANDY SERVICES DELEGATES
     private var motionDelegate: motionServiceDelegate?
     private var environmentDelegate: environmentalServiceDelegate?
     private var ledDelegate: ledServiceDelegate?
-    private var stidgetDeviceManager: STidgetDeviceManager?
-    private var disconnectionDelegate: STidgetConnectionFailureDelegate?
+    private var maplecandyDeviceManager: MapleCandyDeviceManager?
+    private var disconnectionDelegate: MapleCandyConnectionFailureDelegate?
     
     //INITIALIZE CLASS
     override init() {
@@ -44,21 +44,21 @@ class STidget: BLETopLevelController{
     }
 }
 
-//MARK: STIDGET API IMPLIMENTATION
-extension STidget: STidgetAPI{
+//MARK: MAPLECANDY API IMPLIMENTATION
+extension MapleCandy: MapleCandyAPI{
 
     
     
     
     /**
      
-     Get current stidget status
+     Get current maplecandy status
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
-     STidgetStatus Enum
+     MapleCandyStatus Enum
      
      - throws:
      none
@@ -67,19 +67,19 @@ extension STidget: STidgetAPI{
      none
      
      */
-    func getSTidgetStatus() -> STidgetStatus{
-        return stidgetStatus
+    func getMapleCandyStatus() -> MapleCandyStatus{
+        return maplecandyStatus
     }
     
     /**
      
-     Get current stidget status
+     Get current maplecandy status
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
-     STidgetStatus Enum
+     MapleCandyStatus Enum
      
      - throws:
      none
@@ -88,7 +88,7 @@ extension STidget: STidgetAPI{
      none
      
      */
-    func setDisconnectionDelegate(delegate: STidgetConnectionFailureDelegate?){
+    func setDisconnectionDelegate(delegate: MapleCandyConnectionFailureDelegate?){
         
         guard let Delegate = delegate else {
             self.disconnectionDelegate = nil
@@ -98,10 +98,10 @@ extension STidget: STidgetAPI{
     }
 
     /**
-     Set delegate to recieve stidget discovery and connection related updates
+     Set delegate to recieve maplecandy discovery and connection related updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -112,22 +112,22 @@ extension STidget: STidgetAPI{
      - parmeters:
      
      */
-    func setDeviceManager(Manager: STidgetDeviceManager?){
+    func setDeviceManager(Manager: MapleCandyDeviceManager?){
         
         guard let manager = Manager else {
-            self.stidgetDeviceManager = nil
+            self.maplecandyDeviceManager = nil
             return
         }
         print("Set device manager")
-        self.stidgetDeviceManager = manager
+        self.maplecandyDeviceManager = manager
         
     }
     
     /**
-     Set delegate to recieve motion updates and stidget connection changes
+     Set delegate to recieve motion updates and maplecandy connection changes
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -152,7 +152,7 @@ extension STidget: STidgetAPI{
      Set delegate to recieve environmental updates and connection changes
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -177,7 +177,7 @@ extension STidget: STidgetAPI{
      Set delegate to recieve led updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -198,10 +198,10 @@ extension STidget: STidgetAPI{
     }
 
     /**
-     Discover the STidget
+     Discover the MapleCandy
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -211,7 +211,7 @@ extension STidget: STidgetAPI{
      
      - parmeters:
      
-     Initiates scanning for STidget using STidget UUIDS
+     Initiates scanning for MapleCandy using MapleCandy UUIDS
      
     */
     func discover() {
@@ -219,20 +219,20 @@ extension STidget: STidgetAPI{
         if bleReady{
             print("Start Scanning for MapleCandy")
             super.startScanningForPeripherals(withServices: nil)
-            //super.startScanningForPeripherals(withServices: [STIDGET_TEST_UUID])//[STIDGET_PRIMARY_SERVICE_UUID])
-            stidgetStatus = .searching
+            //super.startScanningForPeripherals(withServices: [MAPLECANDY_TEST_UUID])//[MAPLECANDY_PRIMARY_SERVICE_UUID])
+            maplecandyStatus = .searching
         } else {
             startScanningFlag = true
-            stidgetStatus = .idle
+            maplecandyStatus = .idle
         }
         
     }
     
     /**
-     Connect to the STidget
+     Connect to the MapleCandy
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -242,17 +242,17 @@ extension STidget: STidgetAPI{
      
      - parmeters:
      
-     Attempt to connect to the STidget if it has already been found and the BLE radio
+     Attempt to connect to the MapleCandy if it has already been found and the BLE radio
      is ready.  When the timeout expires, the connection attempt will be abandonded
-     and the connectionFailed() method will be called on the stidgetDelegate.
+     and the connectionFailed() method will be called on the maplecandyDelegate.
      
      */
     func connect() {
         //RETURN IF BLE IS NOT READY
         guard bleReady else { return }
         
-        //CONNECT TO STIDGET, TIMEOUT OUT AFTER 5 IF CONNECTION NO COMPLETE
-        if let peripheral = stidgetPeripheral{
+        //CONNECT TO MAPLECANDY, TIMEOUT OUT AFTER 5 IF CONNECTION NO COMPLETE
+        if let peripheral = maplecandyPeripheral{
             super.connect(toPeripheral: peripheral, withTimeout: 5)
         }
     }
@@ -261,7 +261,7 @@ extension STidget: STidgetAPI{
      Set delegate to recieve motion updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -280,7 +280,7 @@ extension STidget: STidgetAPI{
      Set delegate to recieve motion updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -293,18 +293,18 @@ extension STidget: STidgetAPI{
      */
     func rpm() -> (UInt16) {
         
-        if let characteristic = stidgetGATT.stidgetAccelRpmGyroCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyAccelRpmGyroCharacteristic{
             super.read(valueFor: characteristic)
         }
         
-        return stidgetParamtervalues.rpm
+        return maplecandyParamtervalues.rpm
     }
     
     /**
      Set delegate to recieve motion updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -317,18 +317,18 @@ extension STidget: STidgetAPI{
      */
     func temperature() -> (Int16) {
         
-        if let characteristic = stidgetGATT.stidgetTemperatureCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyTemperatureCharacteristic{
             super.read(valueFor: characteristic)
         }
         
-        return stidgetParamtervalues.temperature
+        return maplecandyParamtervalues.temperature
     }
     
     /**
      Set delegate to recieve motion updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -341,18 +341,18 @@ extension STidget: STidgetAPI{
      */
     func acceleration() -> (x: Int16, y: Int16, z: Int16) {
         
-        if let characteristic = stidgetGATT.stidgetAccelRpmGyroCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyAccelRpmGyroCharacteristic{
             super.read(valueFor: characteristic)
         }
         
-        return stidgetParamtervalues.acceleration as! (x: Int16, y: Int16, z: Int16)
+        return maplecandyParamtervalues.acceleration as! (x: Int16, y: Int16, z: Int16)
     }
     
     /**
      Set delegate to recieve motion updates
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -365,18 +365,18 @@ extension STidget: STidgetAPI{
      */
     func gyroscope() -> (x: Int16, y: Int16, z: Int16) {
         
-        if let characteristic = stidgetGATT.stidgetAccelRpmGyroCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyAccelRpmGyroCharacteristic{
             super.read(valueFor: characteristic)
         }
         
-        return stidgetParamtervalues.gyroscope as! (x: Int16, y: Int16, z: Int16)
+        return maplecandyParamtervalues.gyroscope as! (x: Int16, y: Int16, z: Int16)
     }
     
     /**
      Reads local value for proximity and submits read request to update value
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -389,18 +389,18 @@ extension STidget: STidgetAPI{
      */
     func proximity() -> (Int16) {
         
-        if let characteristic = stidgetGATT.stidgetAmbLightProxCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyAmbLightProxCharacteristic{
             super.read(valueFor: characteristic)
         }
         
-        return stidgetParamtervalues.prox
+        return maplecandyParamtervalues.prox
     }
     
     /**
      Reads current local value for Ambient light and submits read request to update value
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -413,19 +413,19 @@ extension STidget: STidgetAPI{
      */
     func ambientLightLevel() -> (UInt16) {
         
-        if let characteristic = stidgetGATT.stidgetAmbLightProxCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyAmbLightProxCharacteristic{
             super.read(valueFor: characteristic)
         }
         
-        return stidgetParamtervalues.ambientLightLevel
+        return maplecandyParamtervalues.ambientLightLevel
     }
 
     
     /**
-     Set STidget LED Color
+     Set MapleCandy LED Color
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      True if command successful, false otherwise
@@ -443,7 +443,7 @@ extension STidget: STidgetAPI{
         let byteArray = [red, green, blue]
         let data = Data(buffer: UnsafeBufferPointer(start: byteArray, count: byteArray.count))
         
-        if let characteristic = stidgetGATT.stidgetRgbLedCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyRgbLedCharacteristic{
            super.write(value: data, toCharacteristic: characteristic)
         }
     }
@@ -490,7 +490,7 @@ extension STidget: STidgetAPI{
         
         let data = Data(buffer: UnsafeBufferPointer(start: byteArray, count: byteArray.count))
         
-        if let characteristic = stidgetGATT.stidgetRgbLedCharacteristic{
+        if let characteristic = maplecandyGATT.maplecandyRgbLedCharacteristic{
             super.write(value: data, toCharacteristic: characteristic)
         }
         
@@ -498,66 +498,66 @@ extension STidget: STidgetAPI{
 }
 
 // MARK:
-extension STidget: BLERadioStatusDelegate{
+extension MapleCandy: BLERadioStatusDelegate{
     func bluetoothReady() {
         bleReady = true
-        if startScanningFlag && stidgetStatus == .idle{
+        if startScanningFlag && maplecandyStatus == .idle{
             print("Start Scanning for MapleCandy")
-            stidgetStatus = .searching
+            maplecandyStatus = .searching
             super.startScanningForPeripherals(withServices: nil)
         }
     }
 }
 
 //  MARK: HANDLE MESSAGES FROM LOWER LEVEL BLE LIBRARIES
-extension STidget: STidgetAPIDelegate{
+extension MapleCandy: MapleCandyAPIDelegate{
     
     func disconnected() {
-        stidgetStatus = .idle
-        stidgetDeviceManager?.disconnected!()
-        disconnectionDelegate?.stidgetConnectionFailed()
+        maplecandyStatus = .idle
+        maplecandyDeviceManager?.disconnected!()
+        disconnectionDelegate?.maplecandyConnectionFailed()
     }
     
     func connectionFailed() {
-        stidgetStatus = .idle
-        stidgetDeviceManager?.connectionFailed!()
+        maplecandyStatus = .idle
+        maplecandyDeviceManager?.connectionFailed!()
     }
     
     func connected() {
         print("Is this connected called?")
-        stidgetStatus = .connected
+        maplecandyStatus = .connected
         
-        if let deviceManager = stidgetDeviceManager{
+        if let deviceManager = maplecandyDeviceManager{
             deviceManager.connected!()
         }
         print("Start Service Discovery")
         super.discoverServices(withUUIDS: nil)
-        //stidgetDeviceManager?.connected()
+        //maplecandyDeviceManager?.connected()
     }
     
-    func foundSTidgetPeripheral(StidgetPeripheral: CBPeripheral) {
-        stidgetPeripheral = StidgetPeripheral
-        stidgetStatus = .found
-        stidgetDeviceManager?.foundStidget()
+    func foundMapleCandyPeripheral(MaplecandyPeripheral: CBPeripheral) {
+        maplecandyPeripheral = MaplecandyPeripheral
+        maplecandyStatus = .found
+        maplecandyDeviceManager?.foundMaplecandy()
         super.stopScanning()
-        stidgetStatus = .connecting
+        maplecandyStatus = .connecting
         print("ATTEMPTING TO CONNECT TO MAPLE CANDY")
     }
     
-    func updatedParameter(for parameter: STidgetParameters, newValue: Any) {
+    func updatedParameter(for parameter: MapleCandyParameters, newValue: Any) {
         
         switch parameter {
         //======================
         case .ACCEL:
             let accelerometerUpdate = newValue as! (x: Int16, y: Int16, z: Int16)
             motionDelegate?.accelerometerUpdated(to: accelerometerUpdate.x, y: accelerometerUpdate.y, z: accelerometerUpdate.z)
-            stidgetParamtervalues.acceleration = accelerometerUpdate //as! (x: Int16, y: Int16, Z: Int16)
+            maplecandyParamtervalues.acceleration = accelerometerUpdate //as! (x: Int16, y: Int16, Z: Int16)
         
         //======================
         case .GYRO:
             let gyroscopeUpdate = newValue as! (x: Int16, y: Int16, z: Int16)
             motionDelegate?.gyroUpdated(to: gyroscopeUpdate.x, y: gyroscopeUpdate.y, z: gyroscopeUpdate.z)
-            stidgetParamtervalues.gyroscope = gyroscopeUpdate //as! (x: Int16, y: Int16, Z: Int16)
+            maplecandyParamtervalues.gyroscope = gyroscopeUpdate //as! (x: Int16, y: Int16, Z: Int16)
         
         //======================
         case .LED: print("No value to recieve currently")
@@ -566,25 +566,25 @@ extension STidget: STidgetAPIDelegate{
         case .LIGHT:
             let ambientLightLevelUpdate = newValue as! UInt16
             environmentDelegate?.lightLevelUpdated(to: ambientLightLevelUpdate)
-            stidgetParamtervalues.ambientLightLevel = ambientLightLevelUpdate//newValue as! (x: Double, y: Double, Z: Double)
+            maplecandyParamtervalues.ambientLightLevel = ambientLightLevelUpdate//newValue as! (x: Double, y: Double, Z: Double)
         
         //======================
         case .PROX:
             let proximitUpdate = newValue as! Int16
             environmentDelegate?.proximityUpdated(to: proximitUpdate)
-            stidgetParamtervalues.prox  = proximitUpdate
+            maplecandyParamtervalues.prox  = proximitUpdate
         
         //======================
         case .RPM:
             let rpmUpdate = newValue as! UInt16
             motionDelegate?.rpmUpdated(to: rpmUpdate)
-            stidgetParamtervalues.rpm = rpmUpdate
+            maplecandyParamtervalues.rpm = rpmUpdate
             
         //======================
         case .TEMP:
             let temperatureUpdate = newValue as! Int16
             environmentDelegate?.temperatureUpdated(to: temperatureUpdate)
-            stidgetParamtervalues.temperature = temperatureUpdate
+            maplecandyParamtervalues.temperature = temperatureUpdate
         }
     }
     

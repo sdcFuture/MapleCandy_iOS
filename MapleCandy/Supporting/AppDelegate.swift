@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/22/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import UIKit
@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          application to it. This property is optional since there are legitimate
          error conditions that could cause the creation of the store to fail.
         */
-        let container = NSPersistentContainer(name: "STidget")
+        let container = NSPersistentContainer(name: "MapleCandy")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.

@@ -1,9 +1,9 @@
 //
 //  LEDControlViewController.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/22/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import UIKit
@@ -23,7 +23,7 @@ class LEDControlViewController: UIViewController, ColorChangeDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         ledDataModel = LEDControllerDataModel(ledDelegate: nil)
-        stidget.setDisconnectionDelegate(delegate: self)
+        maplecandy.setDisconnectionDelegate(delegate: self)
     }
     
     func setupUI(){
@@ -71,12 +71,12 @@ class LEDControlViewController: UIViewController, ColorChangeDelegate {
         greenButton.setTitle("GREEN: \(Int(color.green * 255))", for: .normal)
         blueButton.setTitle("BLUE: \(Int(color.blue * 255))", for: .normal)
         //print("RGB Returned = \(color)")
-        stidget.setLedColor(red: UInt8(color.red * 255), green: UInt8(color.green * 255), blue: UInt8(color.blue * 255))
-        //stidget.setLedColor(red: 0, green: 0, blue: 255)
+        maplecandy.setLedColor(red: UInt8(color.red * 255), green: UInt8(color.green * 255), blue: UInt8(color.blue * 255))
+        //maplecandy.setLedColor(red: 0, green: 0, blue: 255)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title = "STidget"
+        self.tabBarController?.title = "MapleCandy"
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -86,9 +86,9 @@ class LEDControlViewController: UIViewController, ColorChangeDelegate {
 }
 
 
-//MARK: MANAGE STIDGET CONNECTION FAILURE
-extension LEDControlViewController: STidgetConnectionFailureDelegate{
-    func stidgetConnectionFailed() {
+//MARK: MANAGE MAPLECANDY CONNECTION FAILURE
+extension LEDControlViewController: MapleCandyConnectionFailureDelegate{
+    func maplecandyConnectionFailed() {
         //RETURN TO HOME SCREEN
         self.navigationController?.popToRootViewController(animated: true)
         print("LED CONTROL VIEW CONTROLLER: Connection Failed")

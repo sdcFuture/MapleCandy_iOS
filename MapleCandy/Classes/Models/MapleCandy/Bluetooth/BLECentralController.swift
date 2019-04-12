@@ -2,8 +2,8 @@
 //  BLECentralController.swift
 //  BLU
 //
-//  Created by Joe Bakalor on 4/6/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation

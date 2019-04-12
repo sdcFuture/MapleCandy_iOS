@@ -1,30 +1,30 @@
 //
-//  STidgetGATT.swift
-//  STidget
+//  MapleCandyGATT.swift
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 12/1/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
 import CoreBluetooth
 
-//DEFINE STIDGET SERVICE AND CHARACTERISTIC UUIDS
+//DEFINE MAPLECANDY SERVICE AND CHARACTERISTIC UUIDS
 
-//let STIDGET_PRIMARY_SERVICE_UUID = CBUUID(string: "f79b4eb3-1b6e-41f2-8d65-d346b4ef5685")
-let STIDGET_PRIMARY_SERVICE_UUID = CBUUID(string: "D68C0001-A21B-11E5-8CB8-0002A5D5C51B")
+//let MAPLECANDY_PRIMARY_SERVICE_UUID = CBUUID(string: "f79b4eb3-1b6e-41f2-8d65-d346b4ef5685")
+let MAPLECANDY_PRIMARY_SERVICE_UUID = CBUUID(string: "D68C0001-A21B-11E5-8CB8-0002A5D5C51B")
 
-//let STIDGET_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb4-1b6e-41f2-8d65-d346b4ef5685")
-let STIDGET_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "D68C0003-A21B-11E5-8CB8-0002A5D5C51B")
+//let MAPLECANDY_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb4-1b6e-41f2-8d65-d346b4ef5685")
+let MAPLECANDY_RGB_LED_CHARACTERISTIC_UUID = CBUUID(string: "D68C0003-A21B-11E5-8CB8-0002A5D5C51B")
 
-//let STIDGET_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb5-1b6e-41f2-8d65-d346b4ef5685")
-let STIDGET_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "D68C0002-A21B-11E5-8CB8-0002A5D5C51B")
+//let MAPLECANDY_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb5-1b6e-41f2-8d65-d346b4ef5685")
+let MAPLECANDY_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID = CBUUID(string: "D68C0002-A21B-11E5-8CB8-0002A5D5C51B")
 
-let STIDGET_TEMP_CHARACTERISTIC_UUID = CBUUID(string: "2A6E")
-let STIDGET_AMB_LIGHT_PROX_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb6-1b6e-41f2-8d65-d346b4ef5685")
-let STIDGET_TEST_UUID = CBUUID(string: "EF680100-9B35-4933-9B10-52FFA9740042")
+let MAPLECANDY_TEMP_CHARACTERISTIC_UUID = CBUUID(string: "2A6E")
+let MAPLECANDY_AMB_LIGHT_PROX_CHARACTERISTIC_UUID = CBUUID(string: "f79b4eb6-1b6e-41f2-8d65-d346b4ef5685")
+let MAPLECANDY_TEST_UUID = CBUUID(string: "EF680100-9B35-4933-9B10-52FFA9740042")
 
-class STidgetGATT: NSObject{
+class MapleCandyGATT: NSObject{
     
     struct characteristic{
         var characteristic: CBCharacteristic?
@@ -36,61 +36,61 @@ class STidgetGATT: NSObject{
         var uuid: CBUUID
     }
 
-    //DEFINE PUBLIC ACCESS VARIABLE TO STIDGET PRIMARY SERVICE
-    public var stidgetPrimaryService: CBService?{
+    //DEFINE PUBLIC ACCESS VARIABLE TO MAPLECANDY PRIMARY SERVICE
+    public var maplecandyPrimaryService: CBService?{
         get{
-            return self.StidgetPrimaryService?.service
+            return self.MaplecandyPrimaryService?.service
         }
     }
     
     //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
-    public var stidgetRgbLedCharacteristic: CBCharacteristic?{
+    public var maplecandyRgbLedCharacteristic: CBCharacteristic?{
         get{
-            return self.StidgetRgbLedCharacteristic?.characteristic
+            return self.MaplecandyRgbLedCharacteristic?.characteristic
         }
     }
     
     //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
-    public var stidgetAccelRpmGyroCharacteristic: CBCharacteristic?{
+    public var maplecandyAccelRpmGyroCharacteristic: CBCharacteristic?{
         get{
-            return self.StidgetAccelRpmGyroCharacteristic?.characteristic
+            return self.MaplecandyAccelRpmGyroCharacteristic?.characteristic
         }
     }
     
     //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
-    public var stidgetTemperatureCharacteristic: CBCharacteristic?{
+    public var maplecandyTemperatureCharacteristic: CBCharacteristic?{
         get{
-            return self.StidgetTemperatureCharacteristic?.characteristic
+            return self.MaplecandyTemperatureCharacteristic?.characteristic
         }
     }
     
     //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
-    public var stidgetAmbLightProxCharacteristic: CBCharacteristic?{
+    public var maplecandyAmbLightProxCharacteristic: CBCharacteristic?{
         get{
-            return self.StidgetAmbLightProxCharacteristic?.characteristic
+            return self.MaplecandyAmbLightProxCharacteristic?.characteristic
         }
     }
     
-    //CREAT PRIVATE VARIABLES TO STORE STIDGET SERVICE AND CHARACTERISTIC REFERENCES
-    private var StidgetPrimaryService: service?  = service(service: nil, uuid: STIDGET_PRIMARY_SERVICE_UUID)//: CBService?
-    private var StidgetRgbLedCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: STIDGET_RGB_LED_CHARACTERISTIC_UUID)//: CBCharacteristic?
-    private var StidgetAccelRpmGyroCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: STIDGET_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID)//: CBCharacteristic?
-    private var StidgetTemperatureCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: STIDGET_TEMP_CHARACTERISTIC_UUID)//: CBCharacteristic?
-    private var StidgetAmbLightProxCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: STIDGET_AMB_LIGHT_PROX_CHARACTERISTIC_UUID)//: CBCharacteristic?
+    //CREAT PRIVATE VARIABLES TO STORE MAPLECANDY SERVICE AND CHARACTERISTIC REFERENCES
+    private var MaplecandyPrimaryService: service?  = service(service: nil, uuid: MAPLECANDY_PRIMARY_SERVICE_UUID)//: CBService?
+    private var MaplecandyRgbLedCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: MAPLECANDY_RGB_LED_CHARACTERISTIC_UUID)//: CBCharacteristic?
+    private var MaplecandyAccelRpmGyroCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: MAPLECANDY_ACCEL_RPM_GYRO_CHARACTERISTIC_UUID)//: CBCharacteristic?
+    private var MaplecandyTemperatureCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: MAPLECANDY_TEMP_CHARACTERISTIC_UUID)//: CBCharacteristic?
+    private var MaplecandyAmbLightProxCharacteristic: characteristic? = characteristic(characteristic: nil, uuid: MAPLECANDY_AMB_LIGHT_PROX_CHARACTERISTIC_UUID)//: CBCharacteristic?
 
     //CALLED FROM SUPER, LOOK THROUGH SERVICES FOR STIDIGET SERVICE
     func foundServices(services: [CBService]){
-        print("STidgetGATT: Found Service called by super")
+        print("MapleCandyGATT: Found Service called by super")
         for Service in services{
             switch Service.uuid{
-            case StidgetPrimaryService!.uuid:
+            case MaplecandyPrimaryService!.uuid:
                 
-                print("STidgetGATT: FOUND MAPLE CANDY VUART_HDL_SVC PRIMARY SERVICE")
-                StidgetPrimaryService?.service = Service
-                stidget.discoverCharacteristics(forService: stidgetPrimaryService!, withUUIDS: nil)
+                print("MapleCandyGATT: FOUND MAPLE CANDY VUART_HDL_SVC PRIMARY SERVICE")
+                MaplecandyPrimaryService?.service = Service
+                maplecandy.discoverCharacteristics(forService: maplecandyPrimaryService!, withUUIDS: nil)
                 
             default:
-                stidget.discoverCharacteristics(forService: Service, withUUIDS: nil)
+                maplecandy.discoverCharacteristics(forService: Service, withUUIDS: nil)
                 print("Unknown Service")
             }
         }
@@ -101,29 +101,29 @@ class STidgetGATT: NSObject{
     func foundCharacteristics(characteristics: [CBCharacteristic]){
         for Characteristic in characteristics{
             switch Characteristic.uuid{
-            case StidgetRgbLedCharacteristic!.uuid:
+            case MaplecandyRgbLedCharacteristic!.uuid:
                 
-                print("STidgetGATT: FOUND MAPLE CANDY UART_HDL_WRITE_CHAR CHARACTERISTIC")
-                StidgetRgbLedCharacteristic?.characteristic = Characteristic
-                //stidget.enableNotifications(forCharacteristic: stidgetRgbLedCharacteristic!)
+                print("MapleCandyGATT: FOUND MAPLE CANDY UART_HDL_WRITE_CHAR CHARACTERISTIC")
+                MaplecandyRgbLedCharacteristic?.characteristic = Characteristic
+                //maplecandy.enableNotifications(forCharacteristic: maplecandyRgbLedCharacteristic!)
                 
-            case StidgetAccelRpmGyroCharacteristic!.uuid:
+            case MaplecandyAccelRpmGyroCharacteristic!.uuid:
                 
-                print("STidgetGATT: FOUND MAPLE CANDY VUART_HDL_INDICATION_CHAR CHARACTERISTIC")
-                StidgetAccelRpmGyroCharacteristic?.characteristic = Characteristic
-                stidget.enableNotifications(forCharacteristic: stidgetAccelRpmGyroCharacteristic!)
+                print("MapleCandyGATT: FOUND MAPLE CANDY VUART_HDL_INDICATION_CHAR CHARACTERISTIC")
+                MaplecandyAccelRpmGyroCharacteristic?.characteristic = Characteristic
+                maplecandy.enableNotifications(forCharacteristic: maplecandyAccelRpmGyroCharacteristic!)
                 
-            case StidgetTemperatureCharacteristic!.uuid:
+            case MaplecandyTemperatureCharacteristic!.uuid:
                 
-                print("STidgetGATT: FOUND TEMP CHARACTERISTIC")
-                StidgetTemperatureCharacteristic?.characteristic = Characteristic
-                stidget.enableNotifications(forCharacteristic: stidgetTemperatureCharacteristic!)
+                print("MapleCandyGATT: FOUND TEMP CHARACTERISTIC")
+                MaplecandyTemperatureCharacteristic?.characteristic = Characteristic
+                maplecandy.enableNotifications(forCharacteristic: maplecandyTemperatureCharacteristic!)
                 
-            case StidgetAmbLightProxCharacteristic!.uuid:
+            case MaplecandyAmbLightProxCharacteristic!.uuid:
                 
-                print("STidgetGATT: FOUND AMB LIGHT PROX CHARACTERISTIC")
-                StidgetAmbLightProxCharacteristic?.characteristic = Characteristic
-                stidget.enableNotifications(forCharacteristic: stidgetAmbLightProxCharacteristic!)
+                print("MapleCandyGATT: FOUND AMB LIGHT PROX CHARACTERISTIC")
+                MaplecandyAmbLightProxCharacteristic?.characteristic = Characteristic
+                maplecandy.enableNotifications(forCharacteristic: maplecandyAmbLightProxCharacteristic!)
                 
             default:
                 print("Unknown Characteristic")
@@ -134,32 +134,32 @@ class STidgetGATT: NSObject{
     //PROCESS CHARACTERISTIC UPDATES
     func valueUpdatedFor(characteristic: CBCharacteristic){
         
-        ///print("STidgetGATT: VALUE UPDATED FOR CHARACTERISTIC")
+        ///print("MapleCandyGATT: VALUE UPDATED FOR CHARACTERISTIC")
         switch characteristic.uuid{
-        case StidgetRgbLedCharacteristic!.uuid:
+        case MaplecandyRgbLedCharacteristic!.uuid:
 
-            stidget.updatedParameter(for: .LED, newValue: 0)
+            maplecandy.updatedParameter(for: .LED, newValue: 0)
                 
-        case StidgetAccelRpmGyroCharacteristic!.uuid:
+        case MaplecandyAccelRpmGyroCharacteristic!.uuid:
             
             let parsedData = parseAccelRpmGyroData(characteristic: characteristic)
             
-            stidget.updatedParameter(for: .ACCEL, newValue: parsedData.accelData)
-            stidget.updatedParameter(for: .GYRO, newValue: parsedData.gyroData)
-            stidget.updatedParameter(for: .RPM, newValue: parsedData.rpmData)
+            maplecandy.updatedParameter(for: .ACCEL, newValue: parsedData.accelData)
+            maplecandy.updatedParameter(for: .GYRO, newValue: parsedData.gyroData)
+            maplecandy.updatedParameter(for: .RPM, newValue: parsedData.rpmData)
                 
-        case StidgetTemperatureCharacteristic!.uuid:
+        case MaplecandyTemperatureCharacteristic!.uuid:
 
             let parsedData = parseTempData(characteristic: characteristic)
             
-            stidget.updatedParameter(for: .TEMP, newValue: parsedData)
+            maplecandy.updatedParameter(for: .TEMP, newValue: parsedData)
                 
-        case StidgetAmbLightProxCharacteristic!.uuid:
+        case MaplecandyAmbLightProxCharacteristic!.uuid:
             
             let parsedData = parseLightProxData(characteristic: characteristic)
             
-            stidget.updatedParameter(for: .LIGHT, newValue: parsedData.light)
-            stidget.updatedParameter(for: .PROX, newValue: parsedData.prox)
+            maplecandy.updatedParameter(for: .LIGHT, newValue: parsedData.light)
+            maplecandy.updatedParameter(for: .PROX, newValue: parsedData.prox)
                 
         default:
             print("Unknown Characteristic Data Updated")
@@ -171,7 +171,7 @@ class STidgetGATT: NSObject{
 
 
 //MARK: DATA PARSING FUNCTIONS
-extension STidgetGATT{
+extension MapleCandyGATT{
     
     struct AccelRpmGyroData{
         var accelData: (x: Int16 , y: Int16, z: Int16) = (0,0,0)
@@ -280,7 +280,7 @@ extension STidgetGATT{
  ·        Generic Attribute Service (required)
  o   Service Changed Characteristic (I, R)
  §  Client Characteristic Configuration Descriptor (R, W)
- ·        STidget Custom Service (UUID: f79b4eb3-1b6e-41f2-8d65-d346b4ef5685)
+ ·        MapleCandy Custom Service (UUID: f79b4eb3-1b6e-41f2-8d65-d346b4ef5685)
  o   RGB LED Characteristic (UUID: f79b4eb4-1b6e-41f2-8d65-d346b4ef5685) (R, W, WNR)
  o   Accelerometer + Gyro Characteristic (UUID: f79b4eb5-1b6e-41f2-8d65-d346b4ef5685) (R, N)
  §  Client Characteristic Configuration Descriptor (R, W)

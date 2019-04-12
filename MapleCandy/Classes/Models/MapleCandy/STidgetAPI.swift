@@ -1,17 +1,17 @@
 //
-//  STidgetAPI.swift
-//  STidget
+//  MapleCandyAPI.swift
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/30/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 11/30/17.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import CoreBluetooth
 
-//STIDGET PARAMETER ENUMERATION
-enum STidgetParameters {
+//MAPLECANDY PARAMETER ENUMERATION
+enum MapleCandyParameters {
     case RPM
     case TEMP
     case ACCEL
@@ -21,8 +21,8 @@ enum STidgetParameters {
     case LED
 }
 
-//STIDGET STATUS'S ENUM
-enum STidgetStatus {
+//MAPLECANDY STATUS'S ENUM
+enum MapleCandyStatus {
     case searching
     case found
     case idle
@@ -31,48 +31,48 @@ enum STidgetStatus {
     case connected
 }
 
-//TOP LEVEL STIDGET DELEGATE PROTOCOL
-@objc protocol stidgetDelegate{
+//TOP LEVEL MAPLECANDY DELEGATE PROTOCOL
+@objc protocol maplecandyDelegate{
     @objc optional func connected()
     @objc optional func disconnected()
     @objc optional func connectionFailed()
 }
 
-protocol STidgetDeviceManager: stidgetDelegate{
-    func foundStidget()
+protocol MapleCandyDeviceManager: maplecandyDelegate{
+    func foundMaplecandy()
 }
 
 //LED DELEGATE PROTOCOL
-protocol ledServiceDelegate: stidgetDelegate{
+protocol ledServiceDelegate: maplecandyDelegate{
     func ledColorUpdated()
 }
 
 //USED BY DATA MODELS TO INFORM VIEW CONTROLLERS OF DISCONNECTIONS
-protocol STidgetConnectionFailureDelegate{
-    func stidgetConnectionFailed()
+protocol MapleCandyConnectionFailureDelegate{
+    func maplecandyConnectionFailed()
 }
 
 //ENVIRONMENTAL SERVICE DELEGATE PROTOCOL
-protocol environmentalServiceDelegate: stidgetDelegate {
+protocol environmentalServiceDelegate: maplecandyDelegate {
     func temperatureUpdated(to temp: Int16)
     func lightLevelUpdated(to lightLevel: UInt16)
     func proximityUpdated(to distance: Int16)
 }
 
 //MOTION SERVICE DELEGATE PROTOCOL
-protocol motionServiceDelegate: stidgetDelegate {
+protocol motionServiceDelegate: maplecandyDelegate {
     func rpmUpdated(to rpm: UInt16)
     func accelerometerUpdated(to x: Int16, y: Int16, z: Int16)
     func gyroUpdated(to x: Int16, y: Int16, z: Int16)
 }
 
-//DEFINE PROTOCOL FOR EXPOSING STIDGET API METHODS
-protocol STidgetAPI {
+//DEFINE PROTOCOL FOR EXPOSING MAPLECANDY API METHODS
+protocol MapleCandyAPI {
     
-    func getSTidgetStatus() -> STidgetStatus
+    func getMapleCandyStatus() -> MapleCandyStatus
     func setLedDelegate(Delegate: ledServiceDelegate?)
     func setEnvironmentalDelegate(Delegate: environmentalServiceDelegate?)
-    func setDisconnectionDelegate(delegate: STidgetConnectionFailureDelegate?)
+    func setDisconnectionDelegate(delegate: MapleCandyConnectionFailureDelegate?)
     func discover()
     func connect()
     func disconnect()
@@ -87,9 +87,9 @@ protocol STidgetAPI {
 }
 
 //CONNECTION TO LOWER LEVEL BLE
-protocol STidgetAPIDelegate: stidgetDelegate {
-    func foundSTidgetPeripheral(StidgetPeripheral: CBPeripheral)
-    func updatedParameter(for parameter: STidgetParameters, newValue: Any)
+protocol MapleCandyAPIDelegate: maplecandyDelegate {
+    func foundMapleCandyPeripheral(MaplecandyPeripheral: CBPeripheral)
+    func updatedParameter(for parameter: MapleCandyParameters, newValue: Any)
 }
 
 

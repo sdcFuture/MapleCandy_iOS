@@ -1,9 +1,9 @@
 //
 //  MotionDataModel.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/30/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
@@ -22,7 +22,7 @@ class MotionDataModel: NSObject{
         var updateHandler = {(newValue: UInt16) in}
     }
     
-    private var diconnectionDelegateSuper: STidgetConnectionFailureDelegate!
+    private var diconnectionDelegateSuper: MapleCandyConnectionFailureDelegate!
     private var accelerationUIDelegate: AccelerationUIDelegate?
     private var gyroscopeUIDelegate: GyroscopeUIDelegate?
     private var rpmUIDelegate: RpmUIDelegate?
@@ -43,16 +43,16 @@ class MotionDataModel: NSObject{
             rpmUIDelegate = delegate
         }
         
-        stidget.setMotionDelegate(Delegate: self)
+        maplecandy.setMotionDelegate(Delegate: self)
         
     }
     
     func disableUpdates(){
-        stidget.setMotionDelegate(Delegate: nil)
+        maplecandy.setMotionDelegate(Delegate: nil)
     }
     
     func enableUpdates(){
-        stidget.setMotionDelegate(Delegate: self)
+        maplecandy.setMotionDelegate(Delegate: self)
     }
 
 }

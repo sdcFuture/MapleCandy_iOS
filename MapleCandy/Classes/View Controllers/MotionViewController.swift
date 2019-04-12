@@ -1,9 +1,9 @@
 //
 //  MotionViewController.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/22/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import UIKit
@@ -52,26 +52,26 @@ class MotionViewController: UIViewController {
             default:
                 GlobalVar.ChannelNumber = 0;
         }
-        stidget.setDAC(DAC0: GlobalVar.settingDAC0, DAC1: GlobalVar.settingDAC1)
+        maplecandy.setDAC(DAC0: GlobalVar.settingDAC0, DAC1: GlobalVar.settingDAC1)
         viewDidLoad()
     }
 
     @IBAction func slider(_ sender: UISlider) {
         DACLabel.text = "0: " + String(format: "%.2f", sender.value)
-        stidget.setDAC(DAC0: Float(sender.value), DAC1: GlobalVar.settingDAC1)
+        maplecandy.setDAC(DAC0: Float(sender.value), DAC1: GlobalVar.settingDAC1)
         GlobalVar.settingDAC0 = sender.value
     }
     
     @IBAction func slider2(_ sender: UISlider) {
         DAC1Label.text = "1: " + String(format: "%.2f", sender.value)
-        stidget.setDAC(DAC0: GlobalVar.settingDAC0, DAC1: Float(sender.value))
+        maplecandy.setDAC(DAC0: GlobalVar.settingDAC0, DAC1: Float(sender.value))
         GlobalVar.settingDAC1 = sender.value
     }
     
     override func   viewDidLoad() {
         super.viewDidLoad()
         //self.tabBarController?.navigationItem.setHidesBackButton(true, animated: false)
-        stidget.setDisconnectionDelegate(delegate: self)
+        maplecandy.setDisconnectionDelegate(delegate: self)
         
         //DEFINE CLOSURE TO HANDLE ACCELEROMETER UPDATES
         let accelerationUpdateHandler = MotionDataModel.AccelerationUIDelegate(updateHandler: {
@@ -159,10 +159,10 @@ class MotionViewController: UIViewController {
 
 
 
-//MARK: MANAGE STIDGET CONNECTION FAILURE
-extension MotionViewController: STidgetConnectionFailureDelegate{
+//MARK: MANAGE MAPLECANDY CONNECTION FAILURE
+extension MotionViewController: MapleCandyConnectionFailureDelegate{
     
-    func stidgetConnectionFailed() {
+    func maplecandyConnectionFailed() {
         //RETURN TO HOME SCREEN
         self.navigationController?.popToRootViewController(animated: true)
         print("MOTION VIEW CONTROLLER: Connection Failed")

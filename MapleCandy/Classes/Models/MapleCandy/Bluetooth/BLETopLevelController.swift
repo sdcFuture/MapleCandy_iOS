@@ -2,8 +2,8 @@
 //  BLETopLevelController.swift
 //  SelectComfort
 //
-//  Created by Joe Bakalor on 9/25/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
@@ -27,8 +27,8 @@ class BLETopLevelController: NSObject
     var bleStatusDelegate: BLERadioStatusDelegate!
     
     //PASS INFO TO API DELEGATE
-    /**  STIDGET SPECIFIC  **/
-    var stidgetDelegate: STidgetAPIDelegate?
+    /**  MAPLECANDY SPECIFIC  **/
+    var maplecandyDelegate: MapleCandyAPIDelegate?
     
     
     //CLASS INITIALIZATION
@@ -39,7 +39,7 @@ class BLETopLevelController: NSObject
         //INIT CENTRAL CONTROLLER WITHOUT GATT STRUCTURE, WE WILL DO THIS OURSELVES
         centralController = BLECentralController()
         centralController.setDelegate(delegate: self)
-        self.stidgetDelegate = stidget
+        self.maplecandyDelegate = maplecandy
     }
     
     func setDelegate(bleStatusDelegate: BLERadioStatusDelegate){
@@ -73,7 +73,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -97,7 +97,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -154,7 +154,7 @@ extension BLETopLevelController: GAPEventDelegate
         if let DeviceString = localName {
             if (DeviceString.hasPrefix("MapleCandy")) {
                 print("Found MapleCandy, Call delegate")
-                stidget.foundSTidgetPeripheral(StidgetPeripheral: peripheral)
+                maplecandy.foundMapleCandyPeripheral(MaplecandyPeripheral: peripheral)
             }
         }
     }
@@ -162,7 +162,7 @@ extension BLETopLevelController: GAPEventDelegate
     func centralController(connectedTo peripheral: CBPeripheral)
     {
         connectedPeripheral = peripheral
-        stidget.connected()
+        maplecandy.connected()
     }
     
     func centralController(failedToConnectTo peripheral: CBPeripheral, with error: Error?)
@@ -174,7 +174,7 @@ extension BLETopLevelController: GAPEventDelegate
     {
         print("Peripheral Disconnected")
         connectedPeripheral = nil
-        stidget.disconnected()
+        maplecandy.disconnected()
         
     }
     
@@ -200,7 +200,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -223,7 +223,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -247,7 +247,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -271,7 +271,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -295,7 +295,7 @@ extension BLETopLevelController
      Description
      
      - Author:
-     Joe Bakalor
+     SDC Future Electronics
      
      - returns:
      Nothing
@@ -326,7 +326,7 @@ extension BLETopLevelController: GATTEventDelegate
 {
     func gattClient(recievedNewValueFor characteristic: CBCharacteristic, value: Data?, error: Error?)
     {
-        stidgetGATT.valueUpdatedFor(characteristic: characteristic)
+        maplecandyGATT.valueUpdatedFor(characteristic: characteristic)
     }
     
     func gattClient(wroteValueFor characteristic: CBCharacteristic, error: Error?)
@@ -384,7 +384,7 @@ extension BLETopLevelController: GATTDiscoveryDelegate
     {
         
         if let discoveredServices = services{
-            stidgetGATT.foundServices(services: discoveredServices)
+            maplecandyGATT.foundServices(services: discoveredServices)
         }
         
     }
@@ -392,7 +392,7 @@ extension BLETopLevelController: GATTDiscoveryDelegate
     func gattClient(foundCharacteristics characteristics: [CBCharacteristic]?, forService service: CBService, error: Error?)
     {
         if let discoveredCharacteristics = characteristics{
-            stidgetGATT.foundCharacteristics(characteristics: discoveredCharacteristics)
+            maplecandyGATT.foundCharacteristics(characteristics: discoveredCharacteristics)
         }
     }
     

@@ -1,9 +1,9 @@
 //
 //  GaugeView.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/30/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import UIKit

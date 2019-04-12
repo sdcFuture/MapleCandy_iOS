@@ -1,9 +1,9 @@
 //
 //  EnvironmentViewController.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/22/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import UIKit
@@ -32,7 +32,7 @@ class EnvironmentViewController: UIViewController {
         ambientLightLabel.font = UIFont(name: "DBLCDTempBlack", size: 84)
         proximityLabel.font = UIFont(name: "DBLCDTempBlack", size: 84)
         
-        stidget.setDisconnectionDelegate(delegate: self)
+        maplecandy.setDisconnectionDelegate(delegate: self)
         
         //DEFINE CLOSURE TO HANDLE LIGHT LEVEL UPDATES
         let lightLevelUpdateHandler = EnvironmentDataModel.LightLevelUIDelegate(updateHandler:{
@@ -73,7 +73,7 @@ class EnvironmentViewController: UIViewController {
     
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title = "STidget"
+        self.tabBarController?.title = "MapleCandy"
         environmentDataModel.enableUpdates()
     }
     
@@ -83,9 +83,9 @@ class EnvironmentViewController: UIViewController {
 }
 
 
-//MARK: MANAGE STIDGET CONNECTION FAILURE
-extension EnvironmentViewController: STidgetConnectionFailureDelegate{
-    func stidgetConnectionFailed() {
+//MARK: MANAGE MAPLECANDY CONNECTION FAILURE
+extension EnvironmentViewController: MapleCandyConnectionFailureDelegate{
+    func maplecandyConnectionFailed() {
         //RETURN TO HOME SCREEN
         self.navigationController?.popToRootViewController(animated: true)
         print("ENVIRONMENT VIEW CONTROLLER: Connection failed")

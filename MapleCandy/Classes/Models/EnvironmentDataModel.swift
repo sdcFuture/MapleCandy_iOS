@@ -1,9 +1,9 @@
 //
 //  EnvironmentDataModel.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/30/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
@@ -23,7 +23,7 @@ class EnvironmentDataModel: NSObject{
         var updateHandler = {(newVlue: Int16) in}
     }
     
-    private var diconnectionDelegateSuper: STidgetConnectionFailureDelegate!
+    private var diconnectionDelegateSuper: MapleCandyConnectionFailureDelegate!
     private var lightLevelUIDelegate: LightLevelUIDelegate?
     private var proximityUIDelegate: ProximityUIDelegate?
     private var temperatureUIDelegate: TemperatureUIDelegate?
@@ -45,16 +45,16 @@ class EnvironmentDataModel: NSObject{
             temperatureUIDelegate = delegate
         }
         
-        //SETUP SELF AS DELEGATE TO RECIEVE ENVIRONMENTAL UPDATES FROM STIDGET
-        stidget.setEnvironmentalDelegate(Delegate: self)
+        //SETUP SELF AS DELEGATE TO RECIEVE ENVIRONMENTAL UPDATES FROM MAPLECANDY
+        maplecandy.setEnvironmentalDelegate(Delegate: self)
     }
     
     func enableUpdates(){
-        stidget.setEnvironmentalDelegate(Delegate: self)
+        maplecandy.setEnvironmentalDelegate(Delegate: self)
     }
     
     func disableUpdates(){
-        stidget.setEnvironmentalDelegate(Delegate: nil)
+        maplecandy.setEnvironmentalDelegate(Delegate: nil)
     }
     
     

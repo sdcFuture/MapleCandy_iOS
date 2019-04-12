@@ -1,24 +1,24 @@
 //
 //  DeviceSelectorViewController.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/27/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import UIKit
 import CoreBluetooth
 
-//STIDGET SINGLETON
-let stidgetGATT = STidgetGATT()
-var stidget: STidget!
+//MAPLECANDY SINGLETON
+let maplecandyGATT = MapleCandyGATT()
+var maplecandy: MapleCandy!
 var globalHomeButton: UIButton?
 
 
 class DeviceSelectorViewController: UIViewController {
     
-    @IBOutlet weak var stidgetImageView: UIImageView!
-    @IBOutlet weak var stidgetStatusText: UILabel!
+    @IBOutlet weak var maplecandyImageView: UIImageView!
+    @IBOutlet weak var maplecandyStatusText: UILabel!
     @IBOutlet weak var connectButton: UIButton!
     
     var testPeripheral: CBPeripheral!
@@ -29,13 +29,13 @@ class DeviceSelectorViewController: UIViewController {
         let tabBarAppearence = UITabBarItem.appearance()
         tabBarAppearence.setTitleTextAttributes([NSAttributedStringKey.font:UIFont(name: "System Font", size: 16)!], for: .normal)
         
-        //INITIALIZE STIDGET SINGLETON
-        stidget = STidget()
+        //INITIALIZE MAPLECANDY SINGLETON
+        maplecandy = MapleCandy()
         super.viewDidLoad()
         
         //SET DEVICE MANAGER DELEGATE
-        stidget.setDeviceManager(Manager: self)
-        stidget.discover()
+        maplecandy.setDeviceManager(Manager: self)
+        maplecandy.discover()
         setupUI()
     }
     
@@ -44,9 +44,9 @@ class DeviceSelectorViewController: UIViewController {
     func setupUI(){
         
         //SET STATUS TEST TO APPROPRIATE STRING
-        stidgetStatusText.text = "Searching..."
+        maplecandyStatusText.text = "Searching..."
         
-        //DISABLE AND HIDE CONNECT BUTTON UNTIL STIDGET IS FOUND
+        //DISABLE AND HIDE CONNECT BUTTON UNTIL MAPLECANDY IS FOUND
         connectButton.isEnabled = false
         connectButton.layer.opacity = 0
         
@@ -79,54 +79,54 @@ class DeviceSelectorViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         
-        stidgetStatusText.text = "Searching..."
+        maplecandyStatusText.text = "Searching..."
         
         connectButton.isEnabled = false
         connectButton.layer.opacity = 0
         
-        //SET STIDGET DEVICE MANAGER DELEGATE
-        stidget.setDeviceManager(Manager: self)
+        //SET MAPLECANDY DEVICE MANAGER DELEGATE
+        maplecandy.setDeviceManager(Manager: self)
         
-        //GET CURRENT STIDGET STATUS
-        let stidgetStatus = stidget.getSTidgetStatus()
+        //GET CURRENT MAPLECANDY STATUS
+        let maplecandyStatus = maplecandy.getMapleCandyStatus()
         
-        if stidgetStatus == .connected{
-            stidget.disconnect()
-        }else if stidgetStatus == .idle || stidgetStatus == .unknown{
+        if maplecandyStatus == .connected{
+            maplecandy.disconnect()
+        }else if maplecandyStatus == .idle || maplecandyStatus == .unknown{
             animate = true
-            //ADD ROTATION ANIMATION TO STIDGET IMAGE
-            rotateView(targetView: stidgetImageView)
-            stidget.discover()
+            //ADD ROTATION ANIMATION TO MAPLECANDY IMAGE
+            rotateView(targetView: maplecandyImageView)
+            maplecandy.discover()
         }
     }
     
-    //USER CONNNECT BUTTON, INITIATES CONNECTION TO FOUND STIDGET
+    //USER CONNNECT BUTTON, INITIATES CONNECTION TO FOUND MAPLECANDY
     @IBAction func connectButton(_ sender: UIButton) {
         animate = true
-        //ADD ROTATION ANIMATION TO STIDGET IMAGE
-        rotateView(targetView: stidgetImageView)
-        stidgetStatusText.text = "Connecting!"
-        stidget.connect()
+        //ADD ROTATION ANIMATION TO MAPLECANDY IMAGE
+        rotateView(targetView: maplecandyImageView)
+        maplecandyStatusText.text = "Connecting!"
+        maplecandy.connect()
     }
 }
 
-//MARK: STidgetDeviceManager Protocol
-extension DeviceSelectorViewController: STidgetDeviceManager{
+//MARK: MapleCandyDeviceManager Protocol
+extension DeviceSelectorViewController: MapleCandyDeviceManager{
     
-    func foundStidget() {
+    func foundMaplecandy() {
         
         animate = false
         UIView.animate(withDuration: 0.5, animations: {
             self.connectButton.layer.opacity = 1
         })
         connectButton.isEnabled = true
-        stidgetStatusText.text = "Found MapleCandy"
+        maplecandyStatusText.text = "Found MapleCandy"
     }
     
     func connected() {
         animate = false
-        //REMOVE SELF AS STIDGET DEVICE MANAGER DELEGATE
-        stidget.setDeviceManager(Manager: nil)
+        //REMOVE SELF AS MAPLECANDY DEVICE MANAGER DELEGATE
+        maplecandy.setDeviceManager(Manager: nil)
         
         //SETUP TRANSISTION TO TAB VIEW CONTROLLER
         let transistion = CATransition()
@@ -140,22 +140,22 @@ extension DeviceSelectorViewController: STidgetDeviceManager{
     
     func disconnected() {
         animate = true
-        //ADD ROTATION ANIMATION TO STIDGET IMAGE
-        rotateView(targetView: stidgetImageView)
+        //ADD ROTATION ANIMATION TO MAPLECANDY IMAGE
+        rotateView(targetView: maplecandyImageView)
         print("Start discovering again")
-        stidget.discover()
+        maplecandy.discover()
     }
     
     func connectionFailed() {
         animate = true
-        //ADD ROTATION ANIMATION TO STIDGET IMAGE
-        rotateView(targetView: stidgetImageView)
+        //ADD ROTATION ANIMATION TO MAPLECANDY IMAGE
+        rotateView(targetView: maplecandyImageView)
         print("Start discovering again")
-        stidget.discover()
+        maplecandy.discover()
     }
 }
 
-//MARK: ROTATION ANIMATION FOR STIDGET SPINNER
+//MARK: ROTATION ANIMATION FOR MAPLECANDY SPINNER
 extension DeviceSelectorViewController{
     private func rotateView(targetView: UIView, duration: Double = 1.0) {
         UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
@@ -178,10 +178,10 @@ extension DeviceSelectorViewController{
 
 
 
-//SETUP AND ADD FUTURE ELECTRONICS LOGO TO STIDGET SPINNER
-//        let logoSize = CGSize(width: stidgetImageView.frame.size.width * 0.15, height: stidgetImageView.frame.size.width * 0.15)
-//        let yCoord = stidgetImageView.frame.maxY - stidgetImageView.frame.size.height/2 - logoSize.height/2
-//        let xCoord = stidgetImageView.frame.minX + stidgetImageView.frame.size.width/2 - logoSize.width/2
+//SETUP AND ADD FUTURE ELECTRONICS LOGO TO MAPLECANDY SPINNER
+//        let logoSize = CGSize(width: maplecandyImageView.frame.size.width * 0.15, height: maplecandyImageView.frame.size.width * 0.15)
+//        let yCoord = maplecandyImageView.frame.maxY - maplecandyImageView.frame.size.height/2 - logoSize.height/2
+//        let xCoord = maplecandyImageView.frame.minX + maplecandyImageView.frame.size.width/2 - logoSize.width/2
 //        let logoOrigin = CGPoint(x: xCoord, y: yCoord)
 //        let futureLogoImageView = UIImageView(frame: CGRect(origin: logoOrigin, size: logoSize))
 //        futureLogoImageView.image = #imageLiteral(resourceName: "futureLogoOption1.png")

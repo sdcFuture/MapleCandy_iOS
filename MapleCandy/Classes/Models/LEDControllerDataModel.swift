@@ -1,9 +1,9 @@
 //
 //  LEDControllerDataModel.swift
-//  STidget
+//  MapleCandy
 //
-//  Created by Joe Bakalor on 11/30/17.
-//  Copyright © 2017 Joe Bakalor. All rights reserved.
+//  Created by SDC Future Electronics on 4/12/19.
+//  Copyright © 2019 SDC Future Electronics. All rights reserved.
 //
 
 import Foundation
@@ -19,7 +19,7 @@ class LEDControllerDataModel: NSObject{
     }
     
     private var ledUIDelegate: LedUIDelegate?
-    private var diconnectionDelegateSuper: STidgetConnectionFailureDelegate!
+    private var diconnectionDelegateSuper: MapleCandyConnectionFailureDelegate!
     
     //INITIALIZE LED DATA MODEL WITH UI DELEGATES
     init(ledDelegate: LedUIDelegate?) {
@@ -30,12 +30,12 @@ class LEDControllerDataModel: NSObject{
             ledUIDelegate = delegate
         }
         
-        //SETUP SELF AS DELEGATE TO RECIEVE LED UPDATES FROM STIDGET
-        stidget.setLedDelegate(Delegate: self)
+        //SETUP SELF AS DELEGATE TO RECIEVE LED UPDATES FROM MAPLECANDY
+        maplecandy.setLedDelegate(Delegate: self)
     }
     
     func removeDelegates(){
-       stidget.setLedDelegate(Delegate: nil)
+       maplecandy.setLedDelegate(Delegate: nil)
     }
     
 }
