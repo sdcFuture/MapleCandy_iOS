@@ -51,13 +51,13 @@ class GaugeView: UIView
         //SET GUAGE BACKGROUND IMAGE BASED ON CURRENT CONFIGURTATION
         switch gaugeOption{
         case .RPM:
-            newImageView.image               = #imageLiteral(resourceName: "STTachFinal.png")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge2.png")
         case .PROX:
-            newImageView.image               = #imageLiteral(resourceName: "STTachometer")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge2")
         case .TEMP:
-            newImageView.image               = #imageLiteral(resourceName: "STTachometer-2")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge1")
         case .LIGHT:
-            newImageView.image               = #imageLiteral(resourceName: "STTachometerLIGHT")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge1")
         }
         
         self.addSubview(newImageView)

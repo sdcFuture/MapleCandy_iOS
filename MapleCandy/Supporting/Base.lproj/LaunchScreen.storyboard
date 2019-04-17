@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="of1-Io-xof">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="of1-Io-xof">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -72,7 +71,7 @@
                                             <constraint firstAttribute="width" secondItem="kx8-TS-T1a" secondAttribute="height" multiplier="343:320" constant="34.300000000000011" id="vmF-eA-PTh"/>
                                         </constraints>
                                     </imageView>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="STLogoSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="uKb-AJ-u5G">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RenesasLogoSplash.png" translatesAutoresizingMaskIntoConstraints="NO" id="uKb-AJ-u5G">
                                         <rect key="frame" x="0.0" y="321" width="343" height="111"/>
                                     </imageView>
                                 </subviews>
@@ -109,6 +108,6 @@
     </scenes>
     <resources>
         <image name="Future_V.JPG" width="1200" height="1624"/>
-        <image name="STLogoSplash.png" width="1132" height="831"/>
+        <image name="RenesasLogoSplash.png" width="1280" height="214"/>
     </resources>
 </document>

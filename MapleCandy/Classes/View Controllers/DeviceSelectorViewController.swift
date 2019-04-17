@@ -50,13 +50,11 @@ class DeviceSelectorViewController: UIViewController {
         connectButton.isEnabled = false
         connectButton.layer.opacity = 0
         
-        //ST LOGO SIZE = 2086 X 674
         //FUTURE LOGO SIZE = 399 X 104
         
 //        let imageSize2 = CGSize(width: (((self.navigationController?.navigationBar.frame.height)!) - 10)*(2086/674), height: (self.navigationController?.navigationBar.frame.height)! - 10)
 //        let imageOrigin2 =  CGPoint(x: (self.navigationController?.navigationBar.frame.width)! - imageSize2.width - 5 , y: 5)
 //        let imageView2 = UIImageView(frame: CGRect(origin: imageOrigin2, size: imageSize2))
-//        imageView2.image = #imageLiteral(resourceName: "ST_Bloc marque_Qi_H_LARGE_Rev.png")
 //
 //        self.navigationController?.navigationBar.addSubview(imageView2)
 //
