@@ -14,24 +14,15 @@
 		38AD4BE91FC5DC6B0009B350 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38AD4BE81FC5DC6B0009B350 /* Assets.xcassets */; };
 		38AD4BEC1FC5DC6B0009B350 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38AD4BEA1FC5DC6B0009B350 /* LaunchScreen.storyboard */; };
 		38AD4BF51FC5DF700009B350 /* MotionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4BF41FC5DF700009B350 /* MotionViewController.swift */; };
-		38AD4BF71FC5DF830009B350 /* LEDControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4BF61FC5DF830009B350 /* LEDControlViewController.swift */; };
-		38AD4BF91FC5DFA80009B350 /* EnvironmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4BF81FC5DFA80009B350 /* EnvironmentViewController.swift */; };
-		38AD4C021FC601D60009B350 /* BrightnessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C011FC601D60009B350 /* BrightnessView.swift */; };
-		38AD4C041FC601DD0009B350 /* SwiftHSVColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C031FC601DD0009B350 /* SwiftHSVColorPicker.swift */; };
-		38AD4C061FC601E50009B350 /* ColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C051FC601E50009B350 /* ColorUtils.swift */; };
-		38AD4C081FC601EC0009B350 /* ColorWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C071FC601EB0009B350 /* ColorWheel.swift */; };
-		38AD4C0A1FC601F30009B350 /* SelectedColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C091FC601F30009B350 /* SelectedColorView.swift */; };
 		38AD4C0D1FCC9ABA0009B350 /* DeviceSelectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C0C1FCC9ABA0009B350 /* DeviceSelectorViewController.swift */; };
 		38AD4C161FD047250009B350 /* GaugeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C151FD047250009B350 /* GaugeView.swift */; };
 		38AD4C1B1FD093690009B350 /* BLETopLevelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C181FD093680009B350 /* BLETopLevelController.swift */; };
 		38AD4C1C1FD093690009B350 /* BLECentralController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C191FD093680009B350 /* BLECentralController.swift */; };
 		38AD4C1D1FD093690009B350 /* GATTClientController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C1A1FD093690009B350 /* GATTClientController.swift */; };
-		38AD4C1F1FD0951F0009B350 /* STidgetAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C1E1FD0951F0009B350 /* STidgetAPI.swift */; };
-		38AD4C211FD097530009B350 /* STidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C201FD097530009B350 /* STidget.swift */; };
-		38AD4C241FD09D2E0009B350 /* LEDControllerDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C231FD09D2E0009B350 /* LEDControllerDataModel.swift */; };
-		38AD4C261FD09D460009B350 /* EnvironmentDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C251FD09D460009B350 /* EnvironmentDataModel.swift */; };
+		38AD4C1F1FD0951F0009B350 /* MapleCandyAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C1E1FD0951F0009B350 /* MapleCandyAPI.swift */; };
+		38AD4C211FD097530009B350 /* MapleCandy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C201FD097530009B350 /* MapleCandy.swift */; };
 		38AD4C281FD09DA30009B350 /* MotionDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C271FD09DA30009B350 /* MotionDataModel.swift */; };
-		38AD4C2C1FD1CD4F0009B350 /* STidgetGATT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C2B1FD1CD4F0009B350 /* STidgetGATT.swift */; };
+		38AD4C2C1FD1CD4F0009B350 /* MapleCandyGATT.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C2B1FD1CD4F0009B350 /* MapleCandyGATT.swift */; };
 		38AD4C3C1FD6EE380009B350 /* CustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD4C3B1FD6EE380009B350 /* CustomColors.swift */; };
 		DC36394B225CFA5900E7D513 /* Future_V.JPG in Resources */ = {isa = PBXBuildFile; fileRef = DC36394A225CFA5800E7D513 /* Future_V.JPG */; };
 		DC36394D225CFAA100E7D513 /* futureLogoOption1.png in Resources */ = {isa = PBXBuildFile; fileRef = DC36394C225CFAA100E7D513 /* futureLogoOption1.png */; };
@@ -53,24 +44,15 @@
 		38AD4BEB1FC5DC6B0009B350 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38AD4BED1FC5DC6B0009B350 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		38AD4BF41FC5DF700009B350 /* MotionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewController.swift; sourceTree = "<group>"; };
-		38AD4BF61FC5DF830009B350 /* LEDControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDControlViewController.swift; sourceTree = "<group>"; };
-		38AD4BF81FC5DFA80009B350 /* EnvironmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentViewController.swift; sourceTree = "<group>"; };
-		38AD4C011FC601D60009B350 /* BrightnessView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrightnessView.swift; sourceTree = "<group>"; };
-		38AD4C031FC601DD0009B350 /* SwiftHSVColorPicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftHSVColorPicker.swift; sourceTree = "<group>"; };
-		38AD4C051FC601E50009B350 /* ColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorUtils.swift; sourceTree = "<group>"; };
-		38AD4C071FC601EB0009B350 /* ColorWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorWheel.swift; sourceTree = "<group>"; };
-		38AD4C091FC601F30009B350 /* SelectedColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectedColorView.swift; sourceTree = "<group>"; };
 		38AD4C0C1FCC9ABA0009B350 /* DeviceSelectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSelectorViewController.swift; sourceTree = "<group>"; };
 		38AD4C151FD047250009B350 /* GaugeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GaugeView.swift; sourceTree = "<group>"; };
 		38AD4C181FD093680009B350 /* BLETopLevelController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLETopLevelController.swift; sourceTree = "<group>"; };
 		38AD4C191FD093680009B350 /* BLECentralController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLECentralController.swift; sourceTree = "<group>"; };
 		38AD4C1A1FD093690009B350 /* GATTClientController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GATTClientController.swift; sourceTree = "<group>"; };
-		38AD4C1E1FD0951F0009B350 /* STidgetAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STidgetAPI.swift; sourceTree = "<group>"; };
-		38AD4C201FD097530009B350 /* STidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STidget.swift; sourceTree = "<group>"; };
-		38AD4C231FD09D2E0009B350 /* LEDControllerDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LEDControllerDataModel.swift; sourceTree = "<group>"; };
-		38AD4C251FD09D460009B350 /* EnvironmentDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentDataModel.swift; sourceTree = "<group>"; };
+		38AD4C1E1FD0951F0009B350 /* MapleCandyAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapleCandyAPI.swift; sourceTree = "<group>"; };
+		38AD4C201FD097530009B350 /* MapleCandy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapleCandy.swift; sourceTree = "<group>"; };
 		38AD4C271FD09DA30009B350 /* MotionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataModel.swift; sourceTree = "<group>"; };
-		38AD4C2B1FD1CD4F0009B350 /* STidgetGATT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STidgetGATT.swift; sourceTree = "<group>"; };
+		38AD4C2B1FD1CD4F0009B350 /* MapleCandyGATT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapleCandyGATT.swift; sourceTree = "<group>"; };
 		38AD4C391FD5F2AE0009B350 /* futureLogoOption1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = futureLogoOption1.png; path = STidget/Graphics/futureLogoOption1.png; sourceTree = SOURCE_ROOT; };
 		38AD4C3B1FD6EE380009B350 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
 		38AD4C3D1FD740240009B350 /* FutureLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureLogo2.png; path = STidget/Graphics/FutureLogo2.png; sourceTree = SOURCE_ROOT; };
@@ -139,24 +121,10 @@
 			isa = PBXGroup;
 			children = (
 				38AD4BF41FC5DF700009B350 /* MotionViewController.swift */,
-				38AD4BF61FC5DF830009B350 /* LEDControlViewController.swift */,
-				38AD4BF81FC5DFA80009B350 /* EnvironmentViewController.swift */,
 				38AD4C0C1FCC9ABA0009B350 /* DeviceSelectorViewController.swift */,
 				38AD4C0E1FCCADBA0009B350 /* Custom UI Classes */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		38AD4C001FC601C80009B350 /* ColorPicker */ = {
-			isa = PBXGroup;
-			children = (
-				38AD4C011FC601D60009B350 /* BrightnessView.swift */,
-				38AD4C051FC601E50009B350 /* ColorUtils.swift */,
-				38AD4C071FC601EB0009B350 /* ColorWheel.swift */,
-				38AD4C031FC601DD0009B350 /* SwiftHSVColorPicker.swift */,
-				38AD4C091FC601F30009B350 /* SelectedColorView.swift */,
-			);
-			path = ColorPicker;
 			sourceTree = "<group>";
 		};
 		38AD4C0B1FCC9A850009B350 /* Supporting */ = {
@@ -193,8 +161,6 @@
 			isa = PBXGroup;
 			children = (
 				38AD4C221FD0979E0009B350 /* MapleCandy */,
-				38AD4C231FD09D2E0009B350 /* LEDControllerDataModel.swift */,
-				38AD4C251FD09D460009B350 /* EnvironmentDataModel.swift */,
 				38AD4C271FD09DA30009B350 /* MotionDataModel.swift */,
 			);
 			path = Models;
@@ -213,9 +179,9 @@
 		38AD4C221FD0979E0009B350 /* MapleCandy */ = {
 			isa = PBXGroup;
 			children = (
-				38AD4C201FD097530009B350 /* STidget.swift */,
-				38AD4C1E1FD0951F0009B350 /* STidgetAPI.swift */,
-				38AD4C2B1FD1CD4F0009B350 /* STidgetGATT.swift */,
+				38AD4C201FD097530009B350 /* MapleCandy.swift */,
+				38AD4C1E1FD0951F0009B350 /* MapleCandyAPI.swift */,
+				38AD4C2B1FD1CD4F0009B350 /* MapleCandyGATT.swift */,
 				38AD4C171FD093280009B350 /* Bluetooth */,
 			);
 			path = MapleCandy;
@@ -224,7 +190,6 @@
 		38AD4C2D1FD227E30009B350 /* Misc */ = {
 			isa = PBXGroup;
 			children = (
-				38AD4C001FC601C80009B350 /* ColorPicker */,
 				38AD4C3B1FD6EE380009B350 /* CustomColors.swift */,
 			);
 			path = Misc;
@@ -336,11 +301,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38AD4C061FC601E50009B350 /* ColorUtils.swift in Sources */,
-				38AD4C021FC601D60009B350 /* BrightnessView.swift in Sources */,
-				38AD4C241FD09D2E0009B350 /* LEDControllerDataModel.swift in Sources */,
-				38AD4BF71FC5DF830009B350 /* LEDControlViewController.swift in Sources */,
-				38AD4BF91FC5DFA80009B350 /* EnvironmentViewController.swift in Sources */,
 				38AD4C1C1FD093690009B350 /* BLECentralController.swift in Sources */,
 				38AD4C0D1FCC9ABA0009B350 /* DeviceSelectorViewController.swift in Sources */,
 				38AD4C281FD09DA30009B350 /* MotionDataModel.swift in Sources */,
@@ -349,16 +309,12 @@
 				38AD4BE71FC5DC6B0009B350 /* MapleCandy.xcdatamodeld in Sources */,
 				38AD4C161FD047250009B350 /* GaugeView.swift in Sources */,
 				38AD4BF51FC5DF700009B350 /* MotionViewController.swift in Sources */,
-				38AD4C261FD09D460009B350 /* EnvironmentDataModel.swift in Sources */,
 				381CA4911FD9D49900CBBFC4 /* 7SegmentDisplay.swift in Sources */,
-				38AD4C1F1FD0951F0009B350 /* STidgetAPI.swift in Sources */,
+				38AD4C1F1FD0951F0009B350 /* MapleCandyAPI.swift in Sources */,
 				38AD4BDF1FC5DC6B0009B350 /* AppDelegate.swift in Sources */,
 				38AD4C3C1FD6EE380009B350 /* CustomColors.swift in Sources */,
-				38AD4C041FC601DD0009B350 /* SwiftHSVColorPicker.swift in Sources */,
-				38AD4C081FC601EC0009B350 /* ColorWheel.swift in Sources */,
-				38AD4C211FD097530009B350 /* STidget.swift in Sources */,
-				38AD4C2C1FD1CD4F0009B350 /* STidgetGATT.swift in Sources */,
-				38AD4C0A1FC601F30009B350 /* SelectedColorView.swift in Sources */,
+				38AD4C211FD097530009B350 /* MapleCandy.swift in Sources */,
+				38AD4C2C1FD1CD4F0009B350 /* MapleCandyGATT.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
