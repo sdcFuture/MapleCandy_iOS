@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MuV-Bb-nLz">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,13 +23,13 @@
                                 <color key="backgroundColor" red="0.0" green="0.57321649789999995" blue="0.29539692400000001" alpha="0.1335989933" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapleCandy_180.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-KK-cTV">
-                                <rect key="frame" x="16" y="288.5" width="382" height="382"/>
+                                <rect key="frame" x="16" y="288.66666666666669" width="382" height="382.00000000000006"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Wrx-KK-cTV" secondAttribute="height" multiplier="1:1" id="b4K-5H-HpO"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapleCandy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W42-uR-JYb">
-                                <rect key="frame" x="16" y="96" width="382" height="63.5"/>
+                                <rect key="frame" x="16" y="96" width="382" height="63.333333333333343"/>
                                 <color key="backgroundColor" red="0.0046349912881851196" green="0.59521418809890747" blue="0.8571656346321106" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="W42-uR-JYb" secondAttribute="height" multiplier="343:57" id="ih8-am-s4e"/>
@@ -44,7 +44,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9L-qh-bna">
-                                <rect key="frame" x="16" y="769.5" width="382" height="63.5"/>
+                                <rect key="frame" x="16" y="769.66666666666663" width="382" height="63.333333333333371"/>
                                 <color key="backgroundColor" red="0.0046349912880000003" green="0.59521418810000004" blue="0.85716563459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="M9L-qh-bna" secondAttribute="height" multiplier="343:57" id="9sl-uC-nL7"/>
@@ -144,7 +144,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m5G-Qc-flL" userLabel="DAC1Label">
-                                        <rect key="frame" x="8" y="69" width="12.5" height="20"/>
+                                        <rect key="frame" x="7.9999999999999991" y="69" width="12.666666666666664" height="20"/>
                                         <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -177,28 +177,28 @@
                                 <rect key="frame" x="0.0" y="565" width="414" height="160"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fKX-3E-cDa">
-                                        <rect key="frame" x="7" y="7" width="196.5" height="146"/>
+                                        <rect key="frame" x="7" y="7" width="196.66666666666666" height="146"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ON9-Gf-H7s">
-                                                <rect key="frame" x="0.0" y="19" width="196.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="19" width="196.66666666666666" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sSK-Ho-pxj">
-                                                <rect key="frame" x="0.0" y="39" width="196.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="39" width="196.66666666666666" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RJ2-aj-Bzc">
-                                                <rect key="frame" x="0.0" y="59" width="196.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="59" width="196.66666666666666" height="20"/>
                                                 <fontDescription key="fontDescription" name="Courier" family="Courier" pointSize="20"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Measure (ADC)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.29999999999999999" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AAb-Ga-68a">
-                                                <rect key="frame" x="0.0" y="1" width="196.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="1" width="196.66666666666666" height="18"/>
                                                 <color key="backgroundColor" red="0.027450980392156862" green="0.67450980392156867" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -227,10 +227,10 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SD8-1c-TXt">
-                                        <rect key="frame" x="210.5" y="7" width="196.5" height="146"/>
+                                        <rect key="frame" x="210.66666666666663" y="7" width="196.33333333333337" height="146"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Control (DAC)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.30000001192092896" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zwu-UL-4Nb">
-                                                <rect key="frame" x="0.0" y="1" width="196.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="1" width="196.33333333333334" height="18"/>
                                                 <color key="backgroundColor" red="0.027450980390000001" green="0.67450980390000004" blue="0.42352941179999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -308,12 +308,12 @@
                     <navigationItem key="navigationItem" id="Dlp-hc-xLm"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="ADC0label" destination="ON9-Gf-H7s" id="Zb5-pz-9KH"/>
+                        <outlet property="ADC1label" destination="sSK-Ho-pxj" id="6qy-VT-tO8"/>
+                        <outlet property="ADC2label" destination="RJ2-aj-Bzc" id="Gva-93-W8T"/>
                         <outlet property="ChannelSelect" destination="5O0-Rm-IjT" id="Njn-aP-2rs"/>
+                        <outlet property="DAC0Label" destination="VM2-ty-gmy" id="ihl-rc-9KC"/>
                         <outlet property="DAC1Label" destination="UlD-6s-Er7" id="yom-xX-fDS"/>
-                        <outlet property="DACLabel" destination="VM2-ty-gmy" id="ihl-rc-9KC"/>
-                        <outlet property="accelXLabel" destination="ON9-Gf-H7s" id="Zb5-pz-9KH"/>
-                        <outlet property="accelYLabel" destination="sSK-Ho-pxj" id="6qy-VT-tO8"/>
-                        <outlet property="accelZLabel" destination="RJ2-aj-Bzc" id="Gva-93-W8T"/>
                         <outlet property="gaugeView" destination="jGN-7R-P4x" id="RDV-Rb-CVV"/>
                     </connections>
                 </viewController>

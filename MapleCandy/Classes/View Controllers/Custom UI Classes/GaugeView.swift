@@ -10,24 +10,13 @@ import UIKit
 
 class GaugeView: UIView
 {
-    enum GaugeOptions{
-        case RPM
-        case TEMP
-        case LIGHT
-        case PROX
-    }
     
-
-    //@IBInspectable var gaugeOption = GaugeOptions
     @IBInspectable var indicatorImage = UIImageView()
     
-    let rpmRange                    = 0...1500
-    var gaugeOption: GaugeOptions   = .RPM
     var indicatorView               : UIImageView!
     var animationTestTimer          : Timer?
     var valueLabel                  : UILabel!
     var zeroAngle                   = CGFloat(Double.pi * -136/180)
-    var angleRange: Double          = 271
     var setupComplete               = false
     var lastRpm                     = 0
     var currentAngle: Double        = -135
@@ -49,15 +38,20 @@ class GaugeView: UIView
         let newImageView                     = UIImageView(frame: CGRect(origin: gaugeOrigin, size: gaugeSize))
         
         //SET GUAGE BACKGROUND IMAGE BASED ON CURRENT CONFIGURTATION
-        switch gaugeOption{
-        case .RPM:
-            newImageView.image               = #imageLiteral(resourceName: "Gauge2.png")
-        case .PROX:
+        //switch gaugeOption{
+        switch(MotionViewController.GlobalVar.ChannelNumber) {
+        case 0:
             newImageView.image               = #imageLiteral(resourceName: "Gauge2")
-        case .TEMP:
+            print("Draw Gauge 0")
+        case 1:
             newImageView.image               = #imageLiteral(resourceName: "Gauge1")
-        case .LIGHT:
-            newImageView.image               = #imageLiteral(resourceName: "Gauge1")
+            print("Draw Gauge 1")
+        case 2:
+            newImageView.image               = #imageLiteral(resourceName: "Gauge3")
+            print("Draw Gauge 2")
+        default:
+            newImageView.image               = #imageLiteral(resourceName: "Gauge2.png")
+            print("Draw Gauge 3")
         }
         
         self.addSubview(newImageView)
@@ -68,7 +62,7 @@ class GaugeView: UIView
         let labelOrigin                      = CGPoint(x: valueLabelXCoordinate , y: valueLabelYCoordinate - self.bounds.size.height * 0.052)
         let labelSize                        = CGSize(width: (imageViewWidth/2), height: self.bounds.size.height * 0.175)
         valueLabel                           = UILabel(frame: CGRect(origin: labelOrigin, size: labelSize))
-        valueLabel.text                      = "0"
+        valueLabel.text                      = "0.00"
         valueLabel.textAlignment             = .center
         valueLabel.font                      = UIFont(name: valueLabel.font.fontName, size: 60)
         valueLabel.numberOfLines             = 0
@@ -90,10 +84,26 @@ class GaugeView: UIView
         self.addSubview(indicatorView)
         
         //INITIALIZE INDICATOR POSITION TO ZERO VALUE
-        UIView.animate(withDuration: 0.25, animations: {
+        UIView.animate(withDuration: 0, animations: {
             self.indicatorView.transform = self.indicatorView.transform.rotated(by: self.zeroAngle)
             self.layoutIfNeeded()
         })
+        
+        switch MotionViewController.GlobalVar.ChannelNumber
+        {
+        case 0:
+            setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel0, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel0)
+            print("Chan0 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel0) ")
+        case 1:
+            setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel1, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel1)
+            print("Chan1 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel1) ")
+        case 2:
+            setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel2, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel2)
+            print("Chan2 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel2) ")
+        default:
+            setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel0, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel0)
+            print("Chan0 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel0) ")
+        }
         
         //animationTestTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.serviceRPM), userInfo: nil, repeats: true)
     }
@@ -114,17 +124,38 @@ class GaugeView: UIView
         lastRpm = rpm
     }
     
+    func redrawGauge(){
+        self.setNeedsDisplay()
+    }
+    
+    func initGaugeNeedlePos(){
+        //INITIALIZE INDICATOR POSITION TO ZERO VALUE
+        UIView.animate(withDuration: 0.25, animations: {
+            self.indicatorView.transform = self.indicatorView.transform.rotated(by: self.zeroAngle)
+            self.layoutIfNeeded()
+        })
+    }
+    
     func updateRpmTest(angleChange: Float){
         //ROTATE INDICATOR TO MATCH NEW RPM
         var angleInDegrees = (angleChange + 135)
         
-        UIView.animate(withDuration: 0.25, animations: {
-            //self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat(angleChange - Float(((Double.pi/180)*135))))
-            self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat((angleChange/2 - 135)*Float(Double.pi/180)))
-            self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat((angleChange - 135)*Float(Double.pi/180)))
-            
-        })
-
+        //If channel change do not show needle animation
+        if (MotionViewController.GlobalVar.ChannelNumber != MotionViewController.GlobalVar.lastChannelNumber) {
+            UIView.animate(withDuration: 0, animations: {
+                //self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat(angleChange - Float(((Double.pi/180)*135))))
+                //self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat((angleChange/2 - 135)*Float(Double.pi/180)))
+                self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat((angleChange - 135)*Float(Double.pi/180)))
+                
+            })
+        } else {
+            UIView.animate(withDuration: 0.25, animations: {
+                //self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat(angleChange - Float(((Double.pi/180)*135))))
+                self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat((angleChange/2 - 135)*Float(Double.pi/180)))
+                self.indicatorView.transform = CGAffineTransform(rotationAngle: CGFloat((angleChange - 135)*Float(Double.pi/180)))
+                
+            })
+        }
     }
 
 }

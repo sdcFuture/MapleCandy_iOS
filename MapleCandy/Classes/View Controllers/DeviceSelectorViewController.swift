@@ -24,8 +24,9 @@ class DeviceSelectorViewController: UIViewController {
     var testPeripheral: CBPeripheral!
     var animate = true
     
+    
+    
     override func viewDidLoad() {
-        
         let tabBarAppearence = UITabBarItem.appearance()
         tabBarAppearence.setTitleTextAttributes([NSAttributedStringKey.font:UIFont(name: "System Font", size: 16)!], for: .normal)
         
@@ -37,9 +38,26 @@ class DeviceSelectorViewController: UIViewController {
         maplecandy.setDeviceManager(Manager: self)
         maplecandy.discover()
         setupUI()
+        //dispNavBarImage()
     }
     
+    func dispNavBarImage() {
+        
+        let image = #imageLiteral(resourceName: "renesas_rl78_logo.png")
+        let imageView = UIImageView(image: image)
+        let navController = self.navigationController!
+        let bannerWidth = navController.navigationBar.frame.size.width
+        let bannerHeight = navController.navigationBar.frame.size.height
+        let bannerX = bannerWidth / 2 - image.size.width / 2
+        let bannerY = bannerHeight / 2 - image.size.height / 2
+        
+        imageView.frame = CGRect(x: bannerX, y: bannerY, width: bannerWidth, height: bannerHeight)
+        imageView.contentMode = .scaleAspectFit
+        
+        navigationItem.titleView = imageView
+    }
     
+
     //SETUP UI
     func setupUI(){
         
@@ -58,13 +76,14 @@ class DeviceSelectorViewController: UIViewController {
 //
 //        self.navigationController?.navigationBar.addSubview(imageView2)
 //
-//        //ADD FUTURE LOGO TO NAVIGATION BAR
-//        let imageSize = CGSize(width: (((self.navigationController?.navigationBar.frame.height)!) - 10)*(399/104), height: (self.navigationController?.navigationBar.frame.height)! - 10)
-//        let imageOrigin =  CGPoint(x: imageSize.width/1.5, y: 5)
+        //ADD RENESAS RL78 LOGO TO NAVIGATION BAR
+//        let imageSize = CGSize(width: (((self.navigationController?.navigationBar.frame.height)!) - 10)*(399/104), height: (self.navigationController?.navigationBar.frame.height)! - 6)
+//        let imageOrigin =  CGPoint(x: imageSize.width/1.5+5, y: 5)
 //        let imageView = UIImageView(frame: CGRect(origin: imageOrigin, size: imageSize))
-//        imageView.image = #imageLiteral(resourceName: "Future_H_RGB_LG_Rev.png")// #imageLiteral(resourceName: "FutureLogo2.png")
-//
+//        imageView.image = #imageLiteral(resourceName: "Renesas_Rl78_Logo.png")// #imageLiteral(resourceName: "FutureLogo2.png")
+
 //        self.navigationController?.navigationBar.addSubview(imageView)
+        
     }
     
     @objc func buttonPressed(_ sender: UIButton!){
@@ -72,7 +91,6 @@ class DeviceSelectorViewController: UIViewController {
     }
     
     override func viewDidLayoutSubviews() {
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -134,6 +152,8 @@ extension DeviceSelectorViewController: MapleCandyDeviceManager{
         
         //TRANSISTION TO TABVIEW CONTROLLER
         self.navigationController?.show(newView, sender: self)
+        
+        clearGlobalVar()
     }
     
     func disconnected() {
@@ -150,6 +170,19 @@ extension DeviceSelectorViewController: MapleCandyDeviceManager{
         rotateView(targetView: maplecandyImageView)
         print("Start discovering again")
         maplecandy.discover()
+    }
+    
+    func clearGlobalVar(){
+        MotionViewController.GlobalVar.ChannelNumber = UInt8 (0)
+        MotionViewController.GlobalVar.lastChannelNumber = UInt8 (0)
+        MotionViewController.GlobalVar.lastDAC0 = Float (0)
+        MotionViewController.GlobalVar.lastDAC1 = Float (0)
+        MotionViewController.GlobalVar.lastNeedlePosChannel0 = (Int (0))
+        MotionViewController.GlobalVar.lastMeasureStrChannel0 = String("0.00")
+        MotionViewController.GlobalVar.lastNeedlePosChannel1 = (Int (0))
+        MotionViewController.GlobalVar.lastMeasureStrChannel1 = String("0.00")
+        MotionViewController.GlobalVar.lastNeedlePosChannel2 = (Int (0))
+        MotionViewController.GlobalVar.lastMeasureStrChannel2 = String("0.00")
     }
 }
 
@@ -168,19 +201,3 @@ extension DeviceSelectorViewController{
     }
 }
 
-
-
-
-
-
-
-
-
-//SETUP AND ADD FUTURE ELECTRONICS LOGO TO MAPLECANDY SPINNER
-//        let logoSize = CGSize(width: maplecandyImageView.frame.size.width * 0.15, height: maplecandyImageView.frame.size.width * 0.15)
-//        let yCoord = maplecandyImageView.frame.maxY - maplecandyImageView.frame.size.height/2 - logoSize.height/2
-//        let xCoord = maplecandyImageView.frame.minX + maplecandyImageView.frame.size.width/2 - logoSize.width/2
-//        let logoOrigin = CGPoint(x: xCoord, y: yCoord)
-//        let futureLogoImageView = UIImageView(frame: CGRect(origin: logoOrigin, size: logoSize))
-//        futureLogoImageView.image = #imageLiteral(resourceName: "futureLogoOption1.png")
-//        self.view.addSubview(futureLogoImageView)

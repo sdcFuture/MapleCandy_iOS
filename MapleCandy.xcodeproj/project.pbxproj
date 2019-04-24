@@ -30,6 +30,7 @@
 		DC363953225CFB7800E7D513 /* FutureLogo2.png in Resources */ = {isa = PBXBuildFile; fileRef = DC363952225CFB7800E7D513 /* FutureLogo2.png */; };
 		DC363959225CFC8E00E7D513 /* FutureFullLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = DC363958225CFC8E00E7D513 /* FutureFullLogo.png */; };
 		DC36395F225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png in Resources */ = {isa = PBXBuildFile; fileRef = DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */; };
+		DC430BF4226FB66300440EDE /* renesas_rl78_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */; };
 		DC5702D422650113000BE887 /* RenesasLogoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = DC5702D322650113000BE887 /* RenesasLogoSplash.png */; };
 /* End PBXBuildFile section */
 
@@ -65,6 +66,7 @@
 		DC363952225CFB7800E7D513 /* FutureLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureLogo2.png; path = MapleCandy/Graphics/FutureLogo2.png; sourceTree = "<group>"; };
 		DC363958225CFC8E00E7D513 /* FutureFullLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureFullLogo.png; path = MapleCandy/Graphics/FutureFullLogo.png; sourceTree = "<group>"; };
 		DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Future_H_RGB_LG_Rev.png; path = MapleCandy/Graphics/Future_H_RGB_LG_Rev.png; sourceTree = "<group>"; };
+		DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = renesas_rl78_logo.png; path = MapleCandy/Graphics/renesas_rl78_logo.png; sourceTree = "<group>"; };
 		DC5702D322650113000BE887 /* RenesasLogoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RenesasLogoSplash.png; path = MapleCandy/Graphics/RenesasLogoSplash.png; sourceTree = "<group>"; };
 		DCAF39F0224277B000BFBE9D /* MapleCandy_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapleCandy_180.png; path = STidget/Graphics/MapleCandy_180.png; sourceTree = SOURCE_ROOT; };
 		DCD9470B223A9A050026A4F6 /* MapleCandy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapleCandy.entitlements; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 		38AD4BD21FC5DC6B0009B350 = {
 			isa = PBXGroup;
 			children = (
+				DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */,
 				DC5702D322650113000BE887 /* RenesasLogoSplash.png */,
 				DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */,
 				DC363958225CFC8E00E7D513 /* FutureFullLogo.png */,
@@ -286,6 +289,7 @@
 				DC363959225CFC8E00E7D513 /* FutureFullLogo.png in Resources */,
 				DC363953225CFB7800E7D513 /* FutureLogo2.png in Resources */,
 				DC363951225CFB2100E7D513 /* MapleCandy_180.png in Resources */,
+				DC430BF4226FB66300440EDE /* renesas_rl78_logo.png in Resources */,
 				DC36394D225CFAA100E7D513 /* futureLogoOption1.png in Resources */,
 				DC36394B225CFA5900E7D513 /* Future_V.JPG in Resources */,
 				38AD4BEC1FC5DC6B0009B350 /* LaunchScreen.storyboard in Resources */,

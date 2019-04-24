@@ -43,28 +43,28 @@ class MapleCandyGATT: NSObject{
         }
     }
     
-    //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
+    //DEFINE PUBLIC ACCESS VARIABLE TO CHARACTERISTIC
     public var maplecandyRgbLedCharacteristic: CBCharacteristic?{
         get{
             return self.MaplecandyRgbLedCharacteristic?.characteristic
         }
     }
     
-    //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
+    //DEFINE PUBLIC ACCESS VARIABLE TO CHARACTERISTIC
     public var maplecandyAccelRpmGyroCharacteristic: CBCharacteristic?{
         get{
             return self.MaplecandyAccelRpmGyroCharacteristic?.characteristic
         }
     }
     
-    //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
+    //DEFINE PUBLIC ACCESS VARIABLE TO CHARACTERISTIC
     public var maplecandyTemperatureCharacteristic: CBCharacteristic?{
         get{
             return self.MaplecandyTemperatureCharacteristic?.characteristic
         }
     }
     
-    //DEFINE PUBLIC ACCESS VARIABLE TO STIDGER RGB LED CHARACTERISTIC
+    //DEFINE PUBLIC ACCESS VARIABLE TO CHARACTERISTIC
     public var maplecandyAmbLightProxCharacteristic: CBCharacteristic?{
         get{
             return self.MaplecandyAmbLightProxCharacteristic?.characteristic
