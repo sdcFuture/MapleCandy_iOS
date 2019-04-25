@@ -25,7 +25,7 @@ class GaugeView: UIView
     
     override func draw(_ rect: CGRect) {
         
-        //BASELINE DIMINSIONS
+        //BASELINE DIMINSIONS
         let superViewWidth                   = rect.size.width
         let superViewHeight                  = rect.size.height
         let imageViewWidth                   = min(superViewWidth, superViewHeight)
@@ -41,16 +41,16 @@ class GaugeView: UIView
         //switch gaugeOption{
         switch(MotionViewController.GlobalVar.ChannelNumber) {
         case 0:
-            newImageView.image               = #imageLiteral(resourceName: "Gauge2")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge1")
             print("Draw Gauge 0")
         case 1:
-            newImageView.image               = #imageLiteral(resourceName: "Gauge1")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge2")
             print("Draw Gauge 1")
         case 2:
             newImageView.image               = #imageLiteral(resourceName: "Gauge3")
             print("Draw Gauge 2")
         default:
-            newImageView.image               = #imageLiteral(resourceName: "Gauge2.png")
+            newImageView.image               = #imageLiteral(resourceName: "Gauge1")
             print("Draw Gauge 3")
         }
         
@@ -58,7 +58,7 @@ class GaugeView: UIView
         
         //SETUP AND ADD VALUE LABEL TO GAUGE
         let valueLabelXCoordinate            = newImageView.bounds.size.width/2 - imageViewWidth/4
-        let valueLabelYCoordinate            = newImageView.bounds.size.height - newImageView.bounds.size.width/6
+        let valueLabelYCoordinate            = newImageView.bounds.size.height - newImageView.bounds.size.width/5.5
         let labelOrigin                      = CGPoint(x: valueLabelXCoordinate , y: valueLabelYCoordinate - self.bounds.size.height * 0.052)
         let labelSize                        = CGSize(width: (imageViewWidth/2), height: self.bounds.size.height * 0.175)
         valueLabel                           = UILabel(frame: CGRect(origin: labelOrigin, size: labelSize))
@@ -75,7 +75,7 @@ class GaugeView: UIView
         //SETUP AND ADD INDICATOR IMAGE VIEW
         let indicatorXCoordinate             = superViewWidth/2 - (imageViewWidth/3.25)/2
         let indicatorYCoordinate             = superViewHeight/2 - imageViewWidth/2
-        let indicatorSize                    = CGSize(width: imageViewWidth/3.25, height: imageViewWidth)
+        let indicatorSize                    = CGSize(width: imageViewWidth/3.25, height: imageViewWidth * 0.985)
         let indicatorOrigin                  = CGPoint(x: indicatorXCoordinate, y: indicatorYCoordinate)
         indicatorView                        = UIImageView(frame: CGRect(origin: indicatorOrigin, size: indicatorSize))
         indicatorView.image                  = #imageLiteral(resourceName: "NewIndicatorTwo")

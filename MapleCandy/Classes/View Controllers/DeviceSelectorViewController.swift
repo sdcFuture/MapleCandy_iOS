@@ -20,16 +20,20 @@ class DeviceSelectorViewController: UIViewController {
     @IBOutlet weak var maplecandyImageView: UIImageView!
     @IBOutlet weak var maplecandyStatusText: UILabel!
     @IBOutlet weak var connectButton: UIButton!
-    
+    @IBOutlet weak var PrivacyPolicyButton: UIButton!
     var testPeripheral: CBPeripheral!
     var animate = true
     
     
+    @IBAction func openPrivacyPolicy(_ sender: Any) {
+        UIApplication.shared.open(URL(string:"https://www.futureelectronics.com/policies/privacy-policy/")! as URL, options: [:], completionHandler:nil)
+    }
     
     override func viewDidLoad() {
         let tabBarAppearence = UITabBarItem.appearance()
         tabBarAppearence.setTitleTextAttributes([NSAttributedStringKey.font:UIFont(name: "System Font", size: 16)!], for: .normal)
         
+        self.PrivacyPolicyButton.layer.cornerRadius = 5
         //INITIALIZE MAPLECANDY SINGLETON
         maplecandy = MapleCandy()
         super.viewDidLoad()
@@ -121,7 +125,7 @@ class DeviceSelectorViewController: UIViewController {
         animate = true
         //ADD ROTATION ANIMATION TO MAPLECANDY IMAGE
         rotateView(targetView: maplecandyImageView)
-        maplecandyStatusText.text = "Connecting!"
+        maplecandyStatusText.text = "Connecting..."
         maplecandy.connect()
     }
 }
@@ -136,7 +140,8 @@ extension DeviceSelectorViewController: MapleCandyDeviceManager{
             self.connectButton.layer.opacity = 1
         })
         connectButton.isEnabled = true
-        maplecandyStatusText.text = "Found MapleCandy"
+        maplecandyStatusText.textColor = UIColor(red: 0.0, green:0.502, blue: 0.502, alpha: 1.0)
+        maplecandyStatusText.text = "Candy found!"
     }
     
     func connected() {

@@ -20,22 +20,33 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m8q-yX-73D">
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <subviews>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScJ-b6-a42">
+                                        <rect key="frame" x="20" y="734" width="374" height="32"/>
+                                        <color key="backgroundColor" red="0.68065900260000001" green="0.2773867835142419" blue="0.6211601322524728" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="3tC-G6-nF8"/>
+                                            <constraint firstAttribute="height" constant="32" id="4fe-p4-ahv"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" title="Privacy Policy"/>
+                                        <connections>
+                                            <action selector="openPrivacyPolicy:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aLu-yd-33d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.57321649789999995" blue="0.29539692400000001" alpha="0.1335989933" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ScJ-b6-a42" firstAttribute="bottom" secondItem="m8q-yX-73D" secondAttribute="bottomMargin" id="cYa-hT-Ziq"/>
+                                    <constraint firstItem="ScJ-b6-a42" firstAttribute="leading" secondItem="m8q-yX-73D" secondAttribute="leading" constant="20" id="hQB-Bt-SY6"/>
+                                    <constraint firstItem="ScJ-b6-a42" firstAttribute="centerX" secondItem="m8q-yX-73D" secondAttribute="centerX" id="ocX-Pv-Ge1"/>
+                                </constraints>
                             </view>
-                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapleCandy_180.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-KK-cTV">
-                                <rect key="frame" x="16" y="288.66666666666669" width="382" height="382.00000000000006"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Wrx-KK-cTV" secondAttribute="height" multiplier="1:1" id="b4K-5H-HpO"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MapleCandy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W42-uR-JYb">
-                                <rect key="frame" x="16" y="96" width="382" height="63.333333333333343"/>
-                                <color key="backgroundColor" red="0.0046349912881851196" green="0.59521418809890747" blue="0.8571656346321106" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="W42-uR-JYb" secondAttribute="height" multiplier="343:57" id="ih8-am-s4e"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Maple Candy" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="W42-uR-JYb">
+                                <rect key="frame" x="16" y="98" width="382" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <color key="textColor" red="0.82509121192893398" green="0.012754433310652411" blue="0.11205656458893254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -43,14 +54,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </label>
-                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9L-qh-bna">
-                                <rect key="frame" x="16" y="769.66666666666663" width="382" height="63.333333333333371"/>
+                            <imageView clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MapleCandy_180.png" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-KK-cTV">
+                                <rect key="frame" x="16" y="288.66666666666669" width="382" height="382.00000000000006"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="Wrx-KK-cTV" secondAttribute="height" multiplier="1:1" id="b4K-5H-HpO"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9L-qh-bna">
+                                <rect key="frame" x="20" y="750" width="374" height="62"/>
                                 <color key="backgroundColor" red="0.0046349912880000003" green="0.59521418810000004" blue="0.85716563459999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="M9L-qh-bna" secondAttribute="height" multiplier="343:57" id="9sl-uC-nL7"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <state key="normal" title="CONNECT">
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Connect">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -65,25 +82,26 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="M9L-qh-bna" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="19b-mc-aiQ"/>
                             <constraint firstItem="m8q-yX-73D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2c7-TR-gjZ"/>
                             <constraint firstItem="Wrx-KK-cTV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="605-fS-rkv"/>
                             <constraint firstItem="Wrx-KK-cTV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9is-Ii-7Bf"/>
                             <constraint firstAttribute="bottom" secondItem="m8q-yX-73D" secondAttribute="bottom" id="CCh-4f-LDV"/>
-                            <constraint firstItem="W42-uR-JYb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="EME-tf-5cf"/>
+                            <constraint firstItem="W42-uR-JYb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="FFA-Xd-etX"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M9L-qh-bna" secondAttribute="trailing" constant="20" id="IAP-zQ-N2M"/>
                             <constraint firstItem="Wrx-KK-cTV" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="31.5" id="JkP-oK-408"/>
                             <constraint firstItem="m8q-yX-73D" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Md2-95-qgl"/>
-                            <constraint firstItem="W42-uR-JYb" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="QWQ-NJ-4ex"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="M9L-qh-bna" secondAttribute="trailing" constant="16" id="RcV-3P-RHL"/>
+                            <constraint firstItem="M9L-qh-bna" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SCH-Sm-riO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="W42-uR-JYb" secondAttribute="trailing" constant="16" id="UlB-Jm-cN7"/>
+                            <constraint firstItem="W42-uR-JYb" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Xlu-Am-tn4"/>
                             <constraint firstItem="m8q-yX-73D" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ecU-tS-4Ya"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Wrx-KK-cTV" secondAttribute="trailing" constant="16" id="frS-4h-ocO"/>
-                            <constraint firstItem="M9L-qh-bna" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-29" id="xWk-xW-o4a"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="M9L-qh-bna" secondAttribute="trailing" id="kPK-8Z-ehr"/>
+                            <constraint firstItem="M9L-qh-bna" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" constant="-50" id="xWk-xW-o4a"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="JET-EQ-49g"/>
                     <connections>
+                        <outlet property="PrivacyPolicyButton" destination="ScJ-b6-a42" id="2gL-Te-zJw"/>
                         <outlet property="connectButton" destination="M9L-qh-bna" id="uAd-rQ-zdG"/>
                         <outlet property="maplecandyImageView" destination="Wrx-KK-cTV" id="jSV-DM-25u"/>
                         <outlet property="maplecandyStatusText" destination="W42-uR-JYb" id="Lpf-wf-ayE"/>
@@ -91,7 +109,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1002.4" y="-98.275862068965523"/>
+            <point key="canvasLocation" x="-1002.8985507246377" y="-98.4375"/>
         </scene>
         <!--Digital to Analog (DAC) & ADC Demo-->
         <scene sceneID="0tT-qr-ulE">

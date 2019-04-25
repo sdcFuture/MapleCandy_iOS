@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="of1-Io-xof">
-    <device id="ipad12_9rounded" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,14 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C5w-Ji-zIY">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1346"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Future_V.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="TNn-5c-UpE">
-                                        <rect key="frame" x="16" y="38" width="992" height="1270"/>
+                                        <rect key="frame" x="16" y="186.5" width="382" height="489"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="TNn-5c-UpE" secondAttribute="height" multiplier="343:439" id="XRp-t5-y7c"/>
                                         </constraints>
@@ -55,24 +55,24 @@
             <objects>
                 <viewController id="of1-Io-xof" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HzG-kx-ntc">
-                        <rect key="frame" x="0.0" y="0.0" width="1024" height="1366"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LIv-G5-JRc">
-                                <rect key="frame" x="0.0" y="0.0" width="1024" height="1380"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" red="0.0" green="0.57321649789999995" blue="0.29539692400000001" alpha="0.1335989933" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RfA-lD-XBe">
-                                <rect key="frame" x="16" y="58.5" width="992" height="1249"/>
+                                <rect key="frame" x="16" y="207.5" width="382" height="481"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Future_V.JPG" translatesAutoresizingMaskIntoConstraints="NO" id="kx8-TS-T1a">
-                                        <rect key="frame" x="0.0" y="0.0" width="992" height="893.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="382" height="324.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kx8-TS-T1a" secondAttribute="height" multiplier="343:320" constant="34.300000000000011" id="vmF-eA-PTh"/>
                                         </constraints>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="renesas_rl78_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="uKb-AJ-u5G">
-                                        <rect key="frame" x="60" y="926.5" width="872" height="322.5"/>
+                                        <rect key="frame" x="60" y="357.5" width="262" height="123.5"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,6 +108,6 @@
     </scenes>
     <resources>
         <image name="Future_V.JPG" width="1200" height="1624"/>
-        <image name="renesas_rl78_logo.png" width="140.39999389648438" height="54"/>
+        <image name="renesas_rl78_logo.png" width="274.20001220703125" height="96.599998474121094"/>
     </resources>
 </document>
