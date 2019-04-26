@@ -75,7 +75,7 @@ class GaugeView: UIView
         //SETUP AND ADD INDICATOR IMAGE VIEW
         let indicatorXCoordinate             = superViewWidth/2 - (imageViewWidth/3.25)/2
         let indicatorYCoordinate             = superViewHeight/2 - imageViewWidth/2
-        let indicatorSize                    = CGSize(width: imageViewWidth/3.25, height: imageViewWidth * 0.985)
+        let indicatorSize                    = CGSize(width: imageViewWidth/3.25, height: imageViewWidth * 0.965)
         let indicatorOrigin                  = CGPoint(x: indicatorXCoordinate, y: indicatorYCoordinate)
         indicatorView                        = UIImageView(frame: CGRect(origin: indicatorOrigin, size: indicatorSize))
         indicatorView.image                  = #imageLiteral(resourceName: "NewIndicatorTwo")
@@ -93,16 +93,12 @@ class GaugeView: UIView
         {
         case 0:
             setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel0, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel0)
-            print("Chan0 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel0) ")
         case 1:
             setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel1, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel1)
-            print("Chan1 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel1) ")
         case 2:
             setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel2, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel2)
-            print("Chan2 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel2) ")
         default:
             setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel0, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel0)
-            print("Chan0 last needle pos: \(MotionViewController.GlobalVar.lastNeedlePosChannel0) ")
         }
         
         //animationTestTimer = Timer.scheduledTimer(timeInterval: 2, target: self, selector: #selector(self.serviceRPM), userInfo: nil, repeats: true)

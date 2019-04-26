@@ -112,8 +112,8 @@ class MotionViewController: UIViewController {
 
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
             
-            //Needle Position = Measurement * (380/4095)
-            let needleConversionFactor = Float(0.092796093)
+            //Needle Position = Measurement * (383/4095)
+            let needleConversionFactor = Float(0.0935286935)
    
             switch GlobalVar.ChannelNumber
             {
