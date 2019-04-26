@@ -141,7 +141,7 @@ extension DeviceSelectorViewController: MapleCandyDeviceManager{
         })
         connectButton.isEnabled = true
         maplecandyStatusText.textColor = UIColor(red: 0.0, green:0.502, blue: 0.502, alpha: 1.0)
-        maplecandyStatusText.text = "Candy found!"
+        maplecandyStatusText.text = "Maple Candy found!"
     }
     
     func connected() {

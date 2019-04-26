@@ -159,7 +159,7 @@ class MotionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title = "Maple Candy"
+        self.tabBarController?.title = "Maple Candy 1.0.0"
         motionDataModel.enableUpdates()
     }
     
