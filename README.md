@@ -1,2 +1,2 @@
-# FutureMapleCandyOS
+# FutureMapleCandyiOS
 MapleCandy iOS Application
