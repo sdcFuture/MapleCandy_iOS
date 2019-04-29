@@ -1,2 +1,2 @@
-# FutureSTidgetiOS
-STidget iOS Application
+# FutureMapleCandyOS
+MapleCandy iOS Application
