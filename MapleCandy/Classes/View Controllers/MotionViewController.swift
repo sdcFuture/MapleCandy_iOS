@@ -87,6 +87,9 @@ class MotionViewController: UIViewController {
         DAC0Label.text = "0: 0.00"
         DAC1Label.text = "0: 0.00"
 
+        //Disable back swipe gesture in UINavigationController to go back to connect screen
+        self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
+        
         //Needle Position = Measurement * (383/4095)
         let needleConversionFactor = Float(0.0935286935)
         
@@ -138,21 +141,21 @@ class MotionViewController: UIViewController {
             
             })
         
-            print(">>>redraw gauge")
+            //print(">>>redraw gauge")
             self.gaugeView.redrawGauge()
         
-        //DEFINE CLOSURE TO HANDLE RPM UPDATES
-        let rpmUpdateHandler = MotionDataModel.RpmUIDelegate(updateHandler: {
-            (rpm: UInt16) in
+            //DEFINE CLOSURE TO HANDLE RPM UPDATES
+            let rpmUpdateHandler = MotionDataModel.RpmUIDelegate(updateHandler: {
+                (rpm: UInt16) in
             
-            //self.gaugeView.redrawGauge()
-            //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
-            //self.gaugeView.setRPM(rpm: Int(rpm))
-        })
-        
-        //INITIALIZE MOTION DATA MODEL
-        //motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: gyroscopeUpdateHandler, rpmDelegate: rpmUpdateHandler)
-        motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: nil, rpmDelegate: rpmUpdateHandler)
+                //self.gaugeView.redrawGauge()
+                //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
+                //self.gaugeView.setRPM(rpm: Int(rpm))
+            })
+            
+            //INITIALIZE MOTION DATA MODEL
+            //motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: gyroscopeUpdateHandler, rpmDelegate: rpmUpdateHandler)
+            motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: nil, rpmDelegate: rpmUpdateHandler)
     }
     
     override func viewDidAppear(_ animated: Bool) {
