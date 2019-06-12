@@ -35,7 +35,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		381CA48E1FD9D08700CBBFC4 /* Gauge1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Gauge1.png; path = STidget/Graphics/Gauge1.png; sourceTree = SOURCE_ROOT; };
 		381CA4901FD9D49900CBBFC4 /* 7SegmentDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = 7SegmentDisplay.swift; sourceTree = "<group>"; };
 		38AD4BDB1FC5DC6B0009B350 /* MapleCandy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MapleCandy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		38AD4BDE1FC5DC6B0009B350 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -54,21 +53,15 @@
 		38AD4C201FD097530009B350 /* MapleCandy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapleCandy.swift; sourceTree = "<group>"; };
 		38AD4C271FD09DA30009B350 /* MotionDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataModel.swift; sourceTree = "<group>"; };
 		38AD4C2B1FD1CD4F0009B350 /* MapleCandyGATT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapleCandyGATT.swift; sourceTree = "<group>"; };
-		38AD4C391FD5F2AE0009B350 /* futureLogoOption1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = futureLogoOption1.png; path = STidget/Graphics/futureLogoOption1.png; sourceTree = SOURCE_ROOT; };
 		38AD4C3B1FD6EE380009B350 /* CustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColors.swift; sourceTree = "<group>"; };
-		38AD4C3D1FD740240009B350 /* FutureLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureLogo2.png; path = STidget/Graphics/FutureLogo2.png; sourceTree = SOURCE_ROOT; };
-		38AD4C3F1FD752F60009B350 /* FutureFullLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureFullLogo.png; path = STidget/Graphics/FutureFullLogo.png; sourceTree = SOURCE_ROOT; };
-		38F23B82201653F4000EA82E /* Future_H_RGB_LG_Rev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Future_H_RGB_LG_Rev.png; path = STidget/Graphics/Future_H_RGB_LG_Rev.png; sourceTree = SOURCE_ROOT; };
-		38F23B87201A22FF000EA82E /* Future_V.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Future_V.JPG; path = STidget/Graphics/Future_V.JPG; sourceTree = SOURCE_ROOT; };
-		DC36394A225CFA5800E7D513 /* Future_V.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Future_V.JPG; path = MapleCandy/Graphics/Future_V.JPG; sourceTree = "<group>"; };
-		DC36394C225CFAA100E7D513 /* futureLogoOption1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = futureLogoOption1.png; path = MapleCandy/Graphics/futureLogoOption1.png; sourceTree = "<group>"; };
-		DC363950225CFB2100E7D513 /* MapleCandy_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapleCandy_180.png; path = MapleCandy/Graphics/MapleCandy_180.png; sourceTree = "<group>"; };
-		DC363952225CFB7800E7D513 /* FutureLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureLogo2.png; path = MapleCandy/Graphics/FutureLogo2.png; sourceTree = "<group>"; };
-		DC363958225CFC8E00E7D513 /* FutureFullLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FutureFullLogo.png; path = MapleCandy/Graphics/FutureFullLogo.png; sourceTree = "<group>"; };
-		DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Future_H_RGB_LG_Rev.png; path = MapleCandy/Graphics/Future_H_RGB_LG_Rev.png; sourceTree = "<group>"; };
-		DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = renesas_rl78_logo.png; path = MapleCandy/Graphics/renesas_rl78_logo.png; sourceTree = "<group>"; };
-		DC5702D322650113000BE887 /* RenesasLogoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RenesasLogoSplash.png; path = MapleCandy/Graphics/RenesasLogoSplash.png; sourceTree = "<group>"; };
-		DCAF39F0224277B000BFBE9D /* MapleCandy_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MapleCandy_180.png; path = STidget/Graphics/MapleCandy_180.png; sourceTree = SOURCE_ROOT; };
+		DC36394A225CFA5800E7D513 /* Future_V.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Future_V.JPG; sourceTree = "<group>"; };
+		DC36394C225CFAA100E7D513 /* futureLogoOption1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = futureLogoOption1.png; sourceTree = "<group>"; };
+		DC363950225CFB2100E7D513 /* MapleCandy_180.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MapleCandy_180.png; sourceTree = "<group>"; };
+		DC363952225CFB7800E7D513 /* FutureLogo2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FutureLogo2.png; sourceTree = "<group>"; };
+		DC363958225CFC8E00E7D513 /* FutureFullLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FutureFullLogo.png; sourceTree = "<group>"; };
+		DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Future_H_RGB_LG_Rev.png; sourceTree = "<group>"; };
+		DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = renesas_rl78_logo.png; sourceTree = "<group>"; };
+		DC5702D322650113000BE887 /* RenesasLogoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RenesasLogoSplash.png; sourceTree = "<group>"; };
 		DCD9470B223A9A050026A4F6 /* MapleCandy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MapleCandy.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,14 +79,6 @@
 		38AD4BD21FC5DC6B0009B350 = {
 			isa = PBXGroup;
 			children = (
-				DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */,
-				DC5702D322650113000BE887 /* RenesasLogoSplash.png */,
-				DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */,
-				DC363958225CFC8E00E7D513 /* FutureFullLogo.png */,
-				DC363952225CFB7800E7D513 /* FutureLogo2.png */,
-				DC363950225CFB2100E7D513 /* MapleCandy_180.png */,
-				DC36394C225CFAA100E7D513 /* futureLogoOption1.png */,
-				DC36394A225CFA5800E7D513 /* Future_V.JPG */,
 				38AD4BDD1FC5DC6B0009B350 /* MapleCandy */,
 				38AD4BDC1FC5DC6B0009B350 /* Products */,
 			);
@@ -201,13 +186,14 @@
 		38AD4C301FD5E5AE0009B350 /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				DCAF39F0224277B000BFBE9D /* MapleCandy_180.png */,
-				38F23B87201A22FF000EA82E /* Future_V.JPG */,
-				38F23B82201653F4000EA82E /* Future_H_RGB_LG_Rev.png */,
-				381CA48E1FD9D08700CBBFC4 /* Gauge1.png */,
-				38AD4C3F1FD752F60009B350 /* FutureFullLogo.png */,
-				38AD4C3D1FD740240009B350 /* FutureLogo2.png */,
-				38AD4C391FD5F2AE0009B350 /* futureLogoOption1.png */,
+				DC430BF3226FB66300440EDE /* renesas_rl78_logo.png */,
+				DC5702D322650113000BE887 /* RenesasLogoSplash.png */,
+				DC36394A225CFA5800E7D513 /* Future_V.JPG */,
+				DC36395E225CFD3E00E7D513 /* Future_H_RGB_LG_Rev.png */,
+				DC363958225CFC8E00E7D513 /* FutureFullLogo.png */,
+				DC363952225CFB7800E7D513 /* FutureLogo2.png */,
+				DC36394C225CFAA100E7D513 /* futureLogoOption1.png */,
+				DC363950225CFB2100E7D513 /* MapleCandy_180.png */,
 			);
 			path = Images;
 			sourceTree = "<group>";
