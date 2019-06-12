@@ -52,16 +52,12 @@ class MotionViewController: UIViewController {
         {
             case 0:
                 GlobalVar.ChannelNumber = 0;
-                self.gaugeView.setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel0, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel0)
             case 1:
                 GlobalVar.ChannelNumber = 1;
-                self.gaugeView.setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel1, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel1)
             case 2:
                 GlobalVar.ChannelNumber = 2;
-                self.gaugeView.setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel2, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel2)
             default:
                 GlobalVar.ChannelNumber = 0;
-                self.gaugeView.setRPM(rpm: MotionViewController.GlobalVar.lastNeedlePosChannel0, measureStr: MotionViewController.GlobalVar.lastMeasureStrChannel0)
         }
         maplecandy.setDAC(DAC0: GlobalVar.lastDAC0, DAC1: GlobalVar.lastDAC1)
         self.gaugeView.redrawGauge()
@@ -91,6 +87,9 @@ class MotionViewController: UIViewController {
         DAC0Label.text = "0: 0.00"
         DAC1Label.text = "0: 0.00"
 
+        //Needle Position = Measurement * (383/4095)
+        let needleConversionFactor = Float(0.0935286935)
+        
         //DEFINE CLOSURE TO HANDLE ACCELEROMETER UPDATES
         let accelerationUpdateHandler = MotionDataModel.AccelerationUIDelegate(updateHandler: {
             (x: Int16, y: Int16, z: Int16) in
@@ -99,56 +98,54 @@ class MotionViewController: UIViewController {
             //Measurement * 3.3/4095
             let ADC0StringFloat = String(format: "%.2f",Float(x) * 8.058608e-4);
             self.ADC0label.text = "0: \(ADC0StringFloat)"
-            
+            let gauge0NeedlePos = Int (Float(x) * needleConversionFactor)
+            GlobalVar.lastNeedlePosChannel0 = gauge0NeedlePos
+            GlobalVar.lastMeasureStrChannel0 = ADC0StringFloat
+
             //Measurement * 10.0/4095
             //self.ADC1label.text = "1: \(y)"
             let ADC1StringFloat = String(format: "%.2f",Float(y) * 2.442002e-3)
             self.ADC1label.text = "1: \(ADC1StringFloat)"
-            
+            let gauge1NeedlePos = Int (Float(y) * needleConversionFactor)
+            GlobalVar.lastNeedlePosChannel1 = gauge1NeedlePos
+            GlobalVar.lastMeasureStrChannel1 = ADC1StringFloat
+
             //Measurement * 20.0/4095
             //self.ADC2label.text = "2: \(z)"
-            let ADC2StringFfloat = String(format: "%.2f",Float(z) * 4.884004e-3)
-            self.ADC2label.text = "2: \(ADC2StringFfloat)"
+            let ADC2StringFloat = String(format: "%.2f",Float(z) * 4.884004e-3)
+            self.ADC2label.text = "2: \(ADC2StringFloat)"
+            let gauge2NeedlePos = Int (Float(z) * needleConversionFactor)
+            GlobalVar.lastNeedlePosChannel2 = gauge2NeedlePos
+            GlobalVar.lastMeasureStrChannel2 = ADC2StringFloat
 
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
             
-            //Needle Position = Measurement * (383/4095)
-            let needleConversionFactor = Float(0.0935286935)
-   
             switch GlobalVar.ChannelNumber
             {
             case 0:
-                let gaugeNeedlePos = Int (Float(x) * needleConversionFactor)
-                print("Needle Channel 0 = \(gaugeNeedlePos)")
-                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: ADC0StringFloat)
-                GlobalVar.lastNeedlePosChannel0 = gaugeNeedlePos
-                GlobalVar.lastMeasureStrChannel0 = ADC0StringFloat
+                print("Needle Channel 0 = \(gauge0NeedlePos)")
+                self.gaugeView.setRPM(rpm: gauge0NeedlePos, measureStr: ADC0StringFloat)
             case 1:
-                let gaugeNeedlePos = Int (Float(y) * needleConversionFactor)
-                print("Needle Channel 1 = \(gaugeNeedlePos)")
-                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: ADC1StringFloat)
-                GlobalVar.lastNeedlePosChannel1 = gaugeNeedlePos
-                GlobalVar.lastMeasureStrChannel1 = ADC1StringFloat
+                print("Needle Channel 1 = \(gauge1NeedlePos)")
+                self.gaugeView.setRPM(rpm: gauge1NeedlePos, measureStr: ADC1StringFloat)
             case 2:
-                let gaugeNeedlePos = Int (Float(z) * needleConversionFactor)
-                print("Needle Channel 2 = \(gaugeNeedlePos)")
-                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: ADC2StringFfloat)
-                GlobalVar.lastNeedlePosChannel2 = gaugeNeedlePos
-                GlobalVar.lastMeasureStrChannel2 = ADC0StringFloat
+                print("Needle Channel 2 = \(gauge2NeedlePos)")
+                self.gaugeView.setRPM(rpm: gauge2NeedlePos, measureStr: ADC2StringFloat)
             default:
-                let gaugeNeedlePos = Int (Float(x) * needleConversionFactor)
-                print("Needle Channel 0 = \(gaugeNeedlePos)")
-                self.gaugeView.setRPM(rpm: gaugeNeedlePos, measureStr: ADC0StringFloat)
-                GlobalVar.lastNeedlePosChannel0 = gaugeNeedlePos
-                GlobalVar.lastMeasureStrChannel0 = ADC0StringFloat
+                print("Needle Channel 0 = \(gauge0NeedlePos)")
+                self.gaugeView.setRPM(rpm: gauge0NeedlePos, measureStr: ADC0StringFloat)
             }
             
             })
         
+            print(">>>redraw gauge")
+            self.gaugeView.redrawGauge()
+        
         //DEFINE CLOSURE TO HANDLE RPM UPDATES
         let rpmUpdateHandler = MotionDataModel.RpmUIDelegate(updateHandler: {
             (rpm: UInt16) in
-            //print("New rpm: \(rpm)")
+            
+            //self.gaugeView.redrawGauge()
             //DEFINE HOW YOU WANT THE UI TO PROCESS THE DATA
             //self.gaugeView.setRPM(rpm: Int(rpm))
         })
@@ -159,7 +156,7 @@ class MotionViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title = "Maple Candy 1.0.0"
+        self.tabBarController?.title = "Maple Candy 1.0.1"
         motionDataModel.enableUpdates()
     }
     

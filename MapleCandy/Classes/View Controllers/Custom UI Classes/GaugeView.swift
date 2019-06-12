@@ -117,7 +117,9 @@ class GaugeView: UIView
         let rpmToAngleChange = ((Float(rpm)/382)*270)//*Float(Double.pi/180)
         updateRpmTest(angleChange: rpmToAngleChange)
         valueLabel.text = "\(measureStr)"
+        valueLabel.setNeedsDisplay()
         lastRpm = rpm
+        //print("Measure: " + measureStr)
     }
     
     func redrawGauge(){
@@ -134,7 +136,7 @@ class GaugeView: UIView
     
     func updateRpmTest(angleChange: Float){
         //ROTATE INDICATOR TO MATCH NEW RPM
-        var angleInDegrees = (angleChange + 135)
+        //var angleInDegrees = (angleChange + 135)
         
         //If channel change do not show needle animation
         if (MotionViewController.GlobalVar.ChannelNumber != MotionViewController.GlobalVar.lastChannelNumber) {
