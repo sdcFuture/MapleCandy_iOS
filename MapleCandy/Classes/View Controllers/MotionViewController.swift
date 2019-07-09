@@ -48,8 +48,6 @@ class MotionViewController: UIViewController {
         static var lastMeasureStrChannel1 = String("0.00")
         static var lastNeedlePosChannel2 = (Int (0))
         static var lastMeasureStrChannel2 = String("0.00")
-        static var timerEnable = false
-        static var timerCount = (UInt8 (0)) 
     }
     
     @IBAction func ChannelChanged(_ sender: UISegmentedControl) {
