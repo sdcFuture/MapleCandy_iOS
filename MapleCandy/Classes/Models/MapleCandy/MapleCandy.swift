@@ -294,7 +294,7 @@ extension MapleCandy: MapleCandyAPI{
     func rpm() -> (UInt16) {
         
         if let characteristic = maplecandyGATT.maplecandyAccelRpmGyroCharacteristic{
-            super.read(valueFor: characteristic)
+            //super.read(valueFor: characteristic)
         }
         
         return maplecandyParamtervalues.rpm
@@ -318,7 +318,7 @@ extension MapleCandy: MapleCandyAPI{
     func temperature() -> (Int16) {
         
         if let characteristic = maplecandyGATT.maplecandyTemperatureCharacteristic{
-            super.read(valueFor: characteristic)
+            //super.read(valueFor: characteristic)
         }
         
         return maplecandyParamtervalues.temperature
@@ -366,7 +366,7 @@ extension MapleCandy: MapleCandyAPI{
     func gyroscope() -> (x: Int16, y: Int16, z: Int16) {
         
         if let characteristic = maplecandyGATT.maplecandyAccelRpmGyroCharacteristic{
-            super.read(valueFor: characteristic)
+            //super.read(valueFor: characteristic)
         }
         
         return maplecandyParamtervalues.gyroscope as! (x: Int16, y: Int16, z: Int16)
@@ -390,7 +390,7 @@ extension MapleCandy: MapleCandyAPI{
     func proximity() -> (Int16) {
         
         if let characteristic = maplecandyGATT.maplecandyAmbLightProxCharacteristic{
-            super.read(valueFor: characteristic)
+            //super.read(valueFor: characteristic)
         }
         
         return maplecandyParamtervalues.prox
@@ -414,7 +414,7 @@ extension MapleCandy: MapleCandyAPI{
     func ambientLightLevel() -> (UInt16) {
         
         if let characteristic = maplecandyGATT.maplecandyAmbLightProxCharacteristic{
-            super.read(valueFor: characteristic)
+            //super.read(valueFor: characteristic)
         }
         
         return maplecandyParamtervalues.ambientLightLevel
@@ -444,7 +444,7 @@ extension MapleCandy: MapleCandyAPI{
         let data = Data(buffer: UnsafeBufferPointer(start: byteArray, count: byteArray.count))
         
         if let characteristic = maplecandyGATT.maplecandyRgbLedCharacteristic{
-           super.write(value: data, toCharacteristic: characteristic)
+           //super.write(value: data, toCharacteristic: characteristic)
         }
     }
     
@@ -470,7 +470,7 @@ extension MapleCandy: MapleCandyAPI{
         //Convert float to string
         let DAC0String = String(format: "%.2f", DAC0)
         let DAC1String = String(format: "%.2f", DAC1)
-        let DACStringToSend = DAC0String + "," + DAC1String
+        let DACStringToSend = DAC0String + "," + DAC1String + ","
         print("DAC: " + DACStringToSend)
         
         //Pad string at the end to 20 bytes

@@ -145,8 +145,8 @@ class MapleCandyGATT: NSObject{
             let parsedData = parseAccelRpmGyroData(characteristic: characteristic)
             
             maplecandy.updatedParameter(for: .ACCEL, newValue: parsedData.accelData)
-            maplecandy.updatedParameter(for: .GYRO, newValue: parsedData.gyroData)
-            maplecandy.updatedParameter(for: .RPM, newValue: parsedData.rpmData)
+            //maplecandy.updatedParameter(for: .GYRO, newValue: parsedData.gyroData)
+            //maplecandy.updatedParameter(for: .RPM, newValue: parsedData.rpmData)
                 
         case MaplecandyTemperatureCharacteristic!.uuid:
 

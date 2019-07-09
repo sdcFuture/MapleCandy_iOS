@@ -15,6 +15,11 @@ class MotionViewController: UIViewController {
     
     let ChannelNumber = 0
     
+    //Enable timer to send DAC settings every 1 second
+    let timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats:true) { timer in
+        maplecandy.setDAC(DAC0: GlobalVar.lastDAC0, DAC1: Float(GlobalVar.lastDAC1))
+    }
+    
     //Accelerometer view labels
     @IBOutlet weak var ADC0label: UILabel!
     @IBOutlet weak var ADC1label: UILabel!
@@ -43,6 +48,8 @@ class MotionViewController: UIViewController {
         static var lastMeasureStrChannel1 = String("0.00")
         static var lastNeedlePosChannel2 = (Int (0))
         static var lastMeasureStrChannel2 = String("0.00")
+        static var timerEnable = false
+        static var timerCount = (UInt8 (0)) 
     }
     
     @IBAction func ChannelChanged(_ sender: UISegmentedControl) {
@@ -156,10 +163,13 @@ class MotionViewController: UIViewController {
             //INITIALIZE MOTION DATA MODEL
             //motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: gyroscopeUpdateHandler, rpmDelegate: rpmUpdateHandler)
             motionDataModel = MotionDataModel(accelerationDelegate: accelerationUpdateHandler, gyroscopeDelegate: nil, rpmDelegate: rpmUpdateHandler)
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.tabBarController?.title = "Maple Candy 1.0.1"
+        let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as! String
+        //Display app version number from settings
+        self.tabBarController?.title = "Maple Candy "+appVersion
         motionDataModel.enableUpdates()
     }
     
